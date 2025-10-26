@@ -1,0 +1,27 @@
+{
+  "name": "hvac-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "hvac-site",
+  "author": "lgbird",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "gatsby": "^5.14.6",
+    "gatsby-plugin-google-gtag": "^5.15.0",
+    "gatsby-plugin-postcss": "^6.15.0",
+    "postcss": "^8.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^4.1.16"
+  }
+}
