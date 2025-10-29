@@ -1,6 +1,7 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
+import SEO from '../components/Seo.js';
 import Footer from '../components/Footer.js';
 
 function toggleMenu() {
@@ -17,7 +18,7 @@ const IndexPage = () => {
     <main>
  <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Climatização Total</div>
+            <div class="nav-logo">Climatização Algarve</div>
             <button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
                 <span></span>
                 <span></span>
@@ -149,12 +150,6 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export function Head() {
-    return (
-        <>
-            <html lang="pt-PT" />
-            <title>Home Page</title>
-            <meta name="description" content="Climatização Algarve. Instalação, reparação e manutenção de ar condicionado em todo o Algarve" />
-        </>
-    )
-}
+export const Head = () => (
+  <SEO title="Climatização Algarve"/>
+)
