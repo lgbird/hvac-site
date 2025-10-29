@@ -3,6 +3,8 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import SEO from '../components/Seo.js';
 import Navbar from '../components/Navbar.js';
+import HeroSection from '../components/HeroSection.js';
+import ReviewsSection from '../components/ReviewsSection.js';
 import Footer from '../components/Footer.js';
 import PhoneSvg from '../components/PhoneSvg.js';
 
@@ -19,32 +21,7 @@ const IndexPage = () => {
   return (
     <main>
         <Navbar home={true} />
-
-    <section class="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-    <StaticImage
-      src="../images/background_hq.webp"
-      alt="Hero Background"
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        zIndex: -1,
-      }}
-      loading="eager"
-      fetchpriority="high"
-    />
-        <div class="hero-content">
-            <h1 class="hero-title">Especialistas em ar condicionado</h1>
-            <p class="hero-subtitle">Instalação, reparação e manutenção de ar condicionado em todo o Algarve</p>
-            <button class="cta-button">
-              <PhoneSvg />
-              <span>Ligue-nos já</span>
-            </button>
-        </div>
-    </section>
+        <HeroSection header="Especialistas em ar condicionado" subheader="Instalação, reparação e manutenção de ar condicionado em todo o Algarve" />
 
     <section id="quem-somos" class="section">
         <div class="container">
@@ -77,6 +54,8 @@ const IndexPage = () => {
             <button class="cta-button secondary scroll-to-form">Contate-nos</button>
         </div>
     </section>
+
+    <ReviewsSection />
 
     <section id="porque-nos" class="section">
         <div class="container">
