@@ -193,7 +193,7 @@ body {
 
 /* Buttons */
 .cta-button {
-	background: #E64A19;
+	background: #C62828;
 	color: #fff;
 	border: none;
 	padding: 1rem 2rem;
@@ -214,7 +214,7 @@ body {
 }
 
 .cta-button:hover {
-	background-color: #BF360C;
+	background-color: #B71C1C;
 }
 
 .cta-button.secondary {

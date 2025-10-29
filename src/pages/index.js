@@ -149,4 +149,12 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export function Head() {
+    return (
+        <>
+            <html lang="pt-PT" />
+            <title>Home Page</title>
+            <meta name="description" content="Climatização Algarve. Instalação, reparação e manutenção de ar condicionado em todo o Algarve" />
+        </>
+    )
+}
