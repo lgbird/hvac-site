@@ -52,7 +52,6 @@ const IndexPage = () => {
 
     <section id="como-funciona" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Serviços</h2>
             <div class="steps">
                 <div class="step">
                     <h3 class="step-number">Instalação</h3>
