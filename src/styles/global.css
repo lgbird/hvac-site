@@ -86,9 +86,9 @@ body {
 	text-align: center;
 	padding: 0 20px;
 	margin-top: 60px;
-	background-image: url('/images/background.png');
+	/* background-image: url('/images/background.png');
 	/* image path relative to the static folder or src */
-	background-position: center;
+	/*background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	/* cover makes the image scale and cover entire section */
