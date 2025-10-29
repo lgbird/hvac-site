@@ -2,7 +2,9 @@ import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
 import SEO from '../components/Seo.js';
+import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
+import PhoneSvg from '../components/PhoneSvg.js';
 
 function toggleMenu() {
   const navMenu = document.querySelector('.nav-menu');
@@ -16,22 +18,7 @@ function toggleMenu() {
 const IndexPage = () => {
   return (
     <main>
- <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">Climatização Algarve</div>
-            <button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" onClick={toggleMenu}>
-                <li><a href="#quem-somos" class="nav-link">Quem Somos</a></li>
-                <li><a href="#como-funciona" class="nav-link">Como Funciona</a></li>
-                <li><a href="#porque-nos" class="nav-link">Porque Nós</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+        <Navbar home={true} />
 
     <section class="hero" style={{ position: 'relative', overflow: 'hidden' }}>
     <StaticImage
@@ -52,7 +39,10 @@ const IndexPage = () => {
         <div class="hero-content">
             <h1 class="hero-title">Especialistas em ar condicionado</h1>
             <p class="hero-subtitle">Instalação, reparação e manutenção de ar condicionado em todo o Algarve</p>
-            <button class="cta-button scroll-to-form">Contate-nos</button>
+            <button class="cta-button">
+              <PhoneSvg />
+              <span>Ligue-nos já</span>
+            </button>
         </div>
     </section>
 

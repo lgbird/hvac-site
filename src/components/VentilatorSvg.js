@@ -1,6 +1,8 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+import * as React from 'react'
+
+const VentilatorSvg = () => {
+	return (
+<svg width="28px" height="28px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
 <g id="SVGRepo_iconCarrier">
@@ -8,3 +10,8 @@
 <path d="M513.2 609.8c54.1 0 98-43.9 98-98s-43.9-98-98-98-98 43.9-98 98 43.9 98 98 98zM472.4 655.9c-10.6 26.5-28 52.7-77.4 123.4-48.6 72.8-19.9 124.5 88.7 124.5 146.9 0 227.6-137.2 117.2-291.8 0 0-51.3 25.7-87.8 25.7-11.6 0-22.9-1.6-33.6-4.5-1.7 7.7-4.1 15.2-7.1 22.7zM367 470.4c-26.5-10.6-52.7-28-123.4-77.4-72.8-48.6-124.5-19.9-124.5 88.7 0 147 137.2 227.6 291.8 117.2 0 0-23.7-50.8-23.7-87.2 0-11.7 1.6-23 4.6-33.7-8.4-1.8-16.6-4.3-24.8-7.6zM552.6 367.5c10.6-26.5 28-52.7 77.4-123.4 48.6-72.8 19.9-124.5-88.7-124.5-147 0-227.6 137.2-117.2 291.8 0 0 52.9-25.7 89.2-25.7 11.1 0 21.9 1.4 32.2 4.2 1.7-7.5 4.1-14.9 7.1-22.4zM613.5 424s25.7 50.6 25.7 87.8c0 11.6-1.6 22.9-4.5 33.6 7.7 1.8 15.2 4.2 22.7 7.2 26.5 10.6 52.7 28 123.4 77.4 72.8 48.6 124.5 19.9 124.5-88.7 0-147-137.2-227.7-291.8-117.3z" fill="#FFFFFF"/>
 </g>
 </svg>
+	)
+}
+
+export default VentilatorSvg;
+

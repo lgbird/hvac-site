@@ -2,8 +2,7 @@ import React from "react";
 import { StaticImage } from 'gatsby-plugin-image'
 
 import SEO from '../components/Seo.js';
-import NavbarLanding from '../components/NavbarLanding.js';
-import WhatsAppBtn from '../components/whatsappBtn.js';
+import Navbar from '../components/Navbar.js';
 import ReviewsSection from '../components/ReviewsSection.js';
 import Footer from '../components/Footer.js';
 import PhoneSvg from '../components/PhoneSvg.js';
@@ -11,7 +10,7 @@ import WhatsappSvg from '../components/WhatsappSvg.js';
 
 const PageTemplate = ({ pageContext }) => (
   <main>
-    <NavbarLanding />
+    <Navbar home={false} />
     <section class="hero" style={{ position: 'relative', overflow: 'hidden' }}>
     <StaticImage
       src="../images/background_hq.webp"
@@ -35,15 +34,9 @@ const PageTemplate = ({ pageContext }) => (
               <PhoneSvg />
               <span>Ligue-nos já</span>
             </button>
-            <p class="big-or">ou</p>
-            <button class="cta-button">
-              <WhatsappSvg />
-              <span>WhatsApp</span>
-            </button>
         </div>
     </section>
     <ReviewsSection />
-    <WhatsAppBtn />
     <Footer />
   </main>
 );
