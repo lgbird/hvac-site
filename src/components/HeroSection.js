@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticImage } from 'gatsby-plugin-image'
 
-import PhoneSvg from '../components/PhoneSvg.js';
+import PhoneCtaBtn from '../components/PhoneCtaBtn.js';
 
 const HeroSection = ({ header, subheader }) => (
     <section class="hero" style={{ position: 'relative', overflow: 'hidden' }}>
@@ -23,10 +23,7 @@ const HeroSection = ({ header, subheader }) => (
 	<div class="hero-content">
 	    <h1 class="hero-title">{header}</h1>
 	    <p class="hero-subtitle">{subheader}</p>
-	    <button class="cta-button">
-	      <PhoneSvg />
-	      <span>Ligue-nos já</span>
-	    </button>
+	    <PhoneCtaBtn />
 	</div>
     </section>
 );

@@ -123,6 +123,15 @@ body {
 	background-color: #f8f9fa;
 }
 
+.section-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .section-title {
 	font-size: 2rem;
 	font-weight: 600;
@@ -195,13 +204,23 @@ body {
 	font-size: 1.125rem;
 	font-weight: 600;
 	cursor: pointer;
-	transition: opacity 0.3s;
 	text-decoration: none;
-	display: inline-block;
+	display: inline-flex;
+	flex-direction: column;
 	border-radius: 4px;
+	justify-self: center;
+	gap: 0.5rem;
+	transition: all 0.3s ease;
+}
+
+.cta-div {
 	display: flex;
 	align-items: center;
-	justify-self: center;
+	justify-content: center;
+}
+
+.cta-phone {
+	letter-spacing: 0.1rem;
 }
 
 .cta-button svg {
@@ -210,6 +229,7 @@ body {
 
 .cta-button:hover {
 	background-color: #B71C1C;
+	transform: scale(1.1);
 }
 
 .cta-button.secondary {
@@ -372,6 +392,10 @@ body {
 	.whatsapp-float {
 		bottom: 10%;
 		right: 8%;
+	}
+
+	.cta-phone {
+		display: none;
 	}
 }
 

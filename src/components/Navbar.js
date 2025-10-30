@@ -14,9 +14,8 @@ const Menu = ({ home }) => {
     if (home) return (
 	<ul class="nav-menu" onClick={toggleMenu}>
 	    <a href="#quem-somos" class="nav-link"><li>Quem Somos</li></a>
-	    <a href="#como-funciona" class="nav-link"><li>Como Funciona</li></a>
-	    <a href="#porque-nos" class="nav-link"><li>Porque Nós</li></a>
-	    <a href="#contacto" class="nav-link"><li>Contacto</li></a>
+	    <a href="#servicos" class="nav-link"><li>Serviços</li></a>
+	    <a href="#reviews" class="nav-link"><li>Avaliações</li></a>
 	</ul>
     )
     else return (

@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import PhoneCtaBtn from '../components/PhoneCtaBtn.js';
+
 const reviews = [
     {
 	name: "Luís Silva",
@@ -41,14 +43,12 @@ const ReviewsSection = () => {
     let children = reviews.map(r => Review(r));
     return (
 	<section id="reviews" class="reviews-section">
-	    <div class="container">
+	    <div class="section-container">
 		<h2 class="section-title">O Que Os Nossos Clientes Dizem</h2>
 		<div class="reviews-grid">
 		    {children}
 		</div>
-		<div>
-		    <button class="cta-button secondary">Partilhe a Sua Experiência</button>
-		</div>
+		<PhoneCtaBtn />
 	    </div>
 	</section>
     )
