@@ -293,6 +293,14 @@ body {
 	text-align: center;
 }
 
+.footer-info {
+	justify-items: center;
+}
+
+.footer-contact {
+	margin-top: 1rem;
+}
+
 .footer-title {
 	font-size: 1.5rem;
 	font-weight: 600;

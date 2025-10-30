@@ -51,7 +51,7 @@ const Navbar = ({ home = true }) => {
 		<div class="nav-container">
 		    <div class="nav-logo">
 			<VentilatorSvg />
-			<span>Climatização Algarve</span>
+			<span>ClimaAlgarve</span>
 		    </div>
 		    <button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
 			<span></span>
