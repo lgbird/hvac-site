@@ -59,5 +59,5 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => (
-  <SEO title="ClimaAlgarve"/>
+  <SEO title="ClimAlgarve"/>
 )

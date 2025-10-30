@@ -18,5 +18,5 @@ const PageTemplate = ({ pageContext }) => (
 export default PageTemplate;
 
 export const Head = () => (
-  <SEO title="ClimaAlgarve"/>
+  <SEO title="ClimAlgarve"/>
 )

@@ -10,7 +10,7 @@ const Footer = () => {
 		    <div class="footer-info">
 			<div class="nav-logo">
 			    <VentilatorSvg />
-			    <span>ClimaAlgarve</span>
+			    <span>ClimAlgarve</span>
 			</div>
 			<div class="footer-contact">
 			    <div class="contact-item">
