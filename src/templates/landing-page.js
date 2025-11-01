@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar.js';
 import HeroSection from '../components/HeroSection.js';
 import ReviewsSection from '../components/ReviewsSection.js';
 import Footer from '../components/Footer.js';
+import GoogleTag from '../components/GoogleTag.js';
 
 const PageTemplate = ({ pageContext }) => (
   <main>
@@ -12,6 +13,7 @@ const PageTemplate = ({ pageContext }) => (
     <HeroSection header={pageContext.header} subheader={pageContext.subheader} />
     <ReviewsSection />
     <Footer />
+    <GoogleTag />
   </main>
 );
 

@@ -9,15 +9,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-postcss",
     {
-      resolve: "gatsby-plugin-google-gtag",
-      options: {
-        trackingIds: ['AW-17670662770'],
-        pluginConfig: {
-            head: false
-        }
-      }
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
