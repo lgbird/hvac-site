@@ -13,8 +13,9 @@ module.exports = {
       options: {
         trackingIds: ['AW-17670662770'],
         pluginConfig: {
-            head: false,
+            head: false
         }
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
