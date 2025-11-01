@@ -10,17 +10,16 @@ export default function GoogleTagManager() {
       {/* Load the GTM script asynchronously and defer execution */}
       <Script
         id="gtm-script"
-        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_ID}`}
       />
 
       {/* Initialize dataLayer and gtag config asynchronously */}
-      <Script id="gtm-inline-script" strategy="afterInteractive">
+      <Script id="gtm-inline-script" >
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GOOGLE_TAG_ID}', { send_page_view: false });
+          gtag('config', '${GOOGLE_TAG_ID}', { send_page_view: true });
         `}
       </Script>
     </>

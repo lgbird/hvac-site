@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection.js';
 import ReviewsSection from '../components/ReviewsSection.js';
 import Footer from '../components/Footer.js';
 import PhoneCtaBtn from '../components/PhoneCtaBtn.js';
+import GoogleTag from '../components/GoogleTag.js';
 
 const IndexPage = () => {
   return (
@@ -52,6 +53,7 @@ const IndexPage = () => {
     <ReviewsSection />
 
         <Footer />
+        <GoogleTag />
     </main>
   )
 }
