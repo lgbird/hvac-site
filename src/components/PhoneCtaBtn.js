@@ -4,7 +4,7 @@ import PhoneSvg from '../components/PhoneSvg.js';
 
 const PhoneCtaBtn = () => {
     return (
-	<a href="tel:+351211234567" class="cta-button">
+	<a href="tel:+351211234567" class="cta cta-button">
 	  <div class="cta-div">
 	    <PhoneSvg />
 	    <span>Ligue-nos já</span>
