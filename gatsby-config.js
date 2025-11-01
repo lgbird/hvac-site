@@ -11,8 +11,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingIds: ['AW-17670662770']
-      }
+        trackingIds: ['AW-17670662770'],
+        pluginConfig: {
+            head: false,
+        }
     },
     {
       resolve: 'gatsby-source-filesystem',
