@@ -1,0 +1,87 @@
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #fff;
+	border-bottom: 1px solid #e0e0e0;
+	z-index: 1000;
+}
+
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1rem 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.nav-logo {
+	font-size: 1.25rem;
+	font-weight: 600;
+	display: flex;
+	gap: 10px;
+}
+
+.nav-toggle {
+	display: none;
+	flex-direction: column;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 5px;
+}
+
+.nav-toggle span {
+	width: 25px;
+	height: 2px;
+	background: #333;
+	margin: 3px 0;
+	transition: 0.3s;
+}
+
+.nav-menu {
+	display: flex;
+	list-style: none;
+	gap: 0.5rem;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: #333;
+	font-weight: 500;
+	transition: opacity 0.3s;
+	padding: 10px 0;
+}
+
+.nav-link:hover {
+	opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+	.nav-toggle {
+		display: flex;
+	}
+
+	.nav-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background: #fff;
+		flex-direction: column;
+		padding: 2rem;
+		border-top: 1px solid #e0e0e0;
+		transform: translateY(0);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	.nav-menu-active {
+		opacity: 1;
+		visibility: visible;
+	}
+}

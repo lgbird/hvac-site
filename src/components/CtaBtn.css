@@ -1,0 +1,52 @@
+.cta-button {
+	background: #C62828;
+	color: #fff;
+	border: none;
+	padding: 1rem 2rem;
+	font-size: 1.125rem;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-flex;
+	flex-direction: column;
+	border-radius: 4px;
+	justify-self: center;
+	gap: 0.5rem;
+	transition: all 0.3s ease;
+}
+
+.cta-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cta-phone {
+	letter-spacing: 0.1rem;
+}
+
+.cta-button svg {
+	margin-right: 0.5rem;
+}
+
+.cta-button:hover {
+	background-color: #B71C1C;
+	transform: scale(1.1);
+}
+
+.cta-button.secondary {
+	background: transparent;
+	color: #000;
+	border: 2px solid #000;
+}
+
+.cta-button.secondary:hover {
+	background: #000;
+	color: #fff;
+}
+
+@media (max-width: 768px) {
+	.cta-phone {
+		display: none;
+	}
+}
