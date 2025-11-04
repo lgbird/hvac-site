@@ -13,9 +13,9 @@ export default async function handler(
       method: 'POST', headers: {
     'Content-Type': 'application/json',
   }, body: JSON.stringify(req.body)})
-    return res.redirect('/?form=success');
+    return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Form submission error:', error);
-    return res.redirect('/?form=error');
+    return res.status(500);
   }
 }
