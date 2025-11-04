@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Script } from "gatsby";
 
-const GOOGLE_TAG_ID = "AW-17670662770"; // Replace with your GTM ID
+const GOOGLE_TAG_ID = process.env.GATSBY_GOOGLE_TAG_ID;
 
 export default function GoogleTagManager() {
   useEffect(() => {

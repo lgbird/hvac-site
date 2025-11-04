@@ -2,6 +2,7 @@ import * as React from "react"
 
 import VentilatorSvg from '../components/VentilatorSvg.js';
 import WhatsAppBtn from '../components/whatsappBtn.js';
+import './Navbar.css';
 
 function toggleMenu() {
   const navMenu = document.querySelector('.nav-menu');
@@ -15,13 +16,14 @@ const Menu = ({ home }) => {
 	<ul class="nav-menu" onClick={toggleMenu}>
 	    <a href="#quem-somos" class="nav-link"><li>Quem Somos</li></a>
 	    <a href="#servicos" class="nav-link"><li>Serviços</li></a>
+	    <a href="#contact" class="nav-link"><li>Contacto</li></a>
 	    <a href="#reviews" class="nav-link"><li>Avaliações</li></a>
 	</ul>
     )
     else return (
 	<ul class="nav-menu" onClick={toggleMenu}>
+	    <a href="#contact" class="nav-link"><li>Contacto</li></a>
 	    <a href="#reviews" class="nav-link"><li>Avaliações</li></a>
-	    <a href="#" class="nav-link"><li>Contacto</li></a>
 	</ul>
     )
 }

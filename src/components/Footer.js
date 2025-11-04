@@ -1,8 +1,11 @@
 import * as React from "react"
 
 import VentilatorSvg from '../components/VentilatorSvg.js';
+import './Footer.css';
 
 const Footer = () => {
+    let phoneNumber = process.env.GATSBY_PHONE_NUMBER;
+	let formattedNumber = phoneNumber.replace(/(\d{3})(?=\d)/g, "$1 ");
     return (
 	<footer class="footer">
 	    <div class="container">
@@ -15,7 +18,7 @@ const Footer = () => {
 			<div class="footer-contact">
 			    <div class="contact-item">
 				<span class="contact-label">Telefone:</span>
-				<a href="tel:+351211234567" class="contact-link">+351 211 234 567</a>
+				<a href={`tel:+351${phoneNumber}`} class="contact-link">+351 {formattedNumber}</a>
 			    </div>
 			</div>
 		    </div>

@@ -1,6 +1,7 @@
 import * as React from "react"
 
-import PhoneCtaBtn from '../components/PhoneCtaBtn.js';
+import CtaBtn from '../components/CtaBtn.js';
+import './ReviewsSection.css';
 
 const reviews = [
     {
@@ -48,7 +49,7 @@ const ReviewsSection = () => {
 		<div class="reviews-grid">
 		    {children}
 		</div>
-		<PhoneCtaBtn />
+		<CtaBtn />
 	    </div>
 	</section>
     )

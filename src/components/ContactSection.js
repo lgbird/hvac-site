@@ -1,36 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ContactSection.css';
 
 const ContactSection = () => {
-  if (typeof window !== 'undefined') {
-    const params = new URLSearchParams(window.location.search);
-    const status = params.get('status');
+const [formRes, setFormRes] = useState(null);
 
-    if (status === 'success') {
-      return (
-        <div className="contact-form">
-          <div className="message success">
-            Thank you! Your message has been sent successfully.
-          </div>
-        </div>
-      );
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setFormRes(params.get('form'));
     }
-
-    if (status === 'error') {
-      return (
-        <div className="contact-form">
-          <div className="message error">
-            Sorry, there was an error sending your message. Please try again.
-          </div>
-        </div>
-      );
-    }
-  }
+  }, []);
 
   return (
 	<section id="contact" class="reviews-section">
 	    <div class="section-container">
 		<h2 class="section-title">Contate-nos</h2>
+                {formRes === 'success' && <div className="contact-form">
+                  <div className="message success">
+                    Obrigado! Entraremos em contacto em breve
+                  </div>
+                </div>}
+                {formRes === 'error' && <div className="contact-form">
+                  <div className="message error">
+                    Ups... algo correu mal! Por favor, recarrega a página e tenta novamente
+                  </div>
+                </div>}
                   <form 
                     className="contact-form" 
                     method="POST" 
@@ -40,9 +34,9 @@ const ContactSection = () => {
                       <input
                         type="text"
                         id="name"
-                        name="name"
+                        name="nome"
                         required
-                        placeholder="Name"
+                        placeholder="Nome"
                       />
                     </div>
 
@@ -60,22 +54,21 @@ const ContactSection = () => {
                       <input
                         type="tel"
                         id="phone"
-                        name="phone"
-                        placeholder="Phone"
+                        name="telefone"
+                        placeholder="Telefone"
                       />
                     </div>
 
                     <div className="form-group">
                       <textarea
                         id="message"
-                        name="message"
+                        name="mensagem"
                         rows="5"
-                        required
-                        placeholder="Message"
+                        placeholder="Mensagem"
                       />
                     </div>
 
-                    <button type="submit" className="submit-btn">Send Message</button>
+                    <button type="submit" className="cta-button" style={{width: "100%"}}>Enviar</button>
                   </form>
             </div>
       </section>

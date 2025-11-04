@@ -3,9 +3,10 @@ import * as React from "react"
 import SEO from '../components/Seo.js';
 import Navbar from '../components/Navbar.js';
 import HeroSection from '../components/HeroSection.js';
+import ContactSection from '../components/ContactSection.js';
 import ReviewsSection from '../components/ReviewsSection.js';
 import Footer from '../components/Footer.js';
-import PhoneCtaBtn from '../components/PhoneCtaBtn.js';
+import CtaBtn from '../components/CtaBtn.js';
 import GoogleTag from '../components/GoogleTag.js';
 
 const IndexPage = () => {
@@ -26,7 +27,7 @@ const IndexPage = () => {
             <p class="section-text">
                 <b>A sua climatização, a nossa especialidade</b>
             </p>
-            <PhoneCtaBtn />
+            <CtaBtn />
         </div>
     </section>
 
@@ -46,9 +47,11 @@ const IndexPage = () => {
                     <p class="step-text">Conserto rápido e eficiente para resolver seu problema</p>
                 </div>
             </div>
-            <PhoneCtaBtn />
+            <CtaBtn />
         </div>
     </section>
+
+    <ContactSection />
 
     <ReviewsSection />
 
