@@ -12,7 +12,8 @@ export default async function handler(
     let nn = await fetch("https://n8n.orthogan.com/webhook/5594b047-2243-47f7-a966-de6fcd178016", {
       method: 'POST', headers: {
     'Content-Type': 'application/json',
-  }, body: JSON.stringify(req.body)})
+  }, body: JSON.stringify({...req.body,
+      'userAgent': req.headers['user-agent'], 'userIp': req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress})})
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Form submission error:', error);
