@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useStaticQuery, graphql } from 'gatsby'
 
 import SEO from '../components/Seo.js';
 import Navbar from '../components/Navbar.js';
@@ -10,10 +11,25 @@ import CtaBtn from '../components/CtaBtn.js';
 import GoogleTag from '../components/GoogleTag.js';
 
 const IndexPage = () => {
+    const data = useStaticQuery(graphql`
+        query {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              heroHeader
+              heroSubheader
+              serviceArea
+            }
+          }
+        }
+      `)
+    const pageData = data.site.siteMetadata;
   return (
     <main>
-        <Navbar home={true} />
-        <HeroSection header="Especialistas em ar condicionado" subheader="Instalação, reparação e manutenção de ar condicionado em todo o Algarve" />
+        <Navbar home={true} siteName={pageData.title} />
+        <HeroSection header={pageData.heroHeader} subheader={pageData.heroSubheader} />
 
     <section id="quem-somos" class="section">
         <div class="section-container">
@@ -22,7 +38,7 @@ const IndexPage = () => {
                 Somos uma equipia dedicada exclusivamente à instalação, manutenção e reparação de sistemas de ar condicionado.
             </p>
             <p class="section-text">
-                Com profundo conhecimento do clima algarvio, garantimos soluções eficazes para o seu conforto, seja em casa ou na empresa.
+                Garantimos soluções eficazes para o seu conforto, seja em casa ou na empresa. Vamos ate si em {pageData.serviceArea}
             </p>
             <p class="section-text">
                 <b>A sua climatização, a nossa especialidade</b>
@@ -64,5 +80,5 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => (
-  <SEO title="ClimAlgarve"/>
+  <SEO />
 )

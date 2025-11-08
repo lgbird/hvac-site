@@ -3,8 +3,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `hvac-site`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `ClimAlgarve`,
+    siteUrl: `https://www.climalgarve.portimaoonline.pt`,
+    heroHeader: 'Especialistas em ar condicionado',
+    heroSubheader: 'Instalação, reparação e manutenção de ar condicionado em todo o Algarve',
+    serviceArea: 'todo o Algarve'
   },
   plugins: [
     "gatsby-plugin-postcss",

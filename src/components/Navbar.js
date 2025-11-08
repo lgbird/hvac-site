@@ -28,7 +28,7 @@ const Menu = ({ home }) => {
     )
 }
 
-const Navbar = ({ home = true }) => {
+const Navbar = ({ home = true, siteName = "ClimAlgarve" }) => {
     React.useEffect(() => {
 	function handleDocumentClick(event) {
 	    const navContainer = document.querySelector('.nav-container');
@@ -53,7 +53,7 @@ const Navbar = ({ home = true }) => {
 		<div class="nav-container">
 		    <div class="nav-logo">
 			<VentilatorSvg />
-			<span>ClimAlgarve</span>
+			<span>{siteName}</span>
 		    </div>
 		    <button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
 			<span></span>
