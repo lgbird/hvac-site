@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useStaticQuery, graphql } from 'gatsby'
 
 import VentilatorSvg from '../components/VentilatorSvg.js';
 import WhatsAppBtn from '../components/whatsappBtn.js';
@@ -28,7 +29,17 @@ const Menu = ({ home }) => {
     )
 }
 
-const Navbar = ({ home = true, siteName = "ClimAlgarve" }) => {
+const Navbar = ({ home = true }) => {
+    const data = useStaticQuery(graphql`
+	query {
+	  site {
+	    siteMetadata {
+	      title
+	    }
+	  }
+	}
+      `)
+
     React.useEffect(() => {
 	function handleDocumentClick(event) {
 	    const navContainer = document.querySelector('.nav-container');
@@ -53,7 +64,7 @@ const Navbar = ({ home = true, siteName = "ClimAlgarve" }) => {
 		<div class="nav-container">
 		    <div class="nav-logo">
 			<VentilatorSvg />
-			<span>{siteName}</span>
+			<span>{data.site.siteMetadata.title}</span>
 		    </div>
 		    <button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
 			<span></span>

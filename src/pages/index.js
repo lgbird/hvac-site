@@ -28,7 +28,7 @@ const IndexPage = () => {
     const pageData = data.site.siteMetadata;
   return (
     <main>
-        <Navbar home={true} siteName={pageData.title} />
+        <Navbar home={true} />
         <HeroSection header={pageData.heroHeader} subheader={pageData.heroSubheader} />
 
     <section id="quem-somos" class="section">
