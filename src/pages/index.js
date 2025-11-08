@@ -38,7 +38,7 @@ const IndexPage = () => {
                 Somos uma equipia dedicada exclusivamente à instalação, manutenção e reparação de sistemas de ar condicionado.
             </p>
             <p class="section-text">
-                Garantimos soluções eficazes para o seu conforto, seja em casa ou na empresa. Vamos ate si em {pageData.serviceArea}
+                Garantimos soluções eficazes para o seu conforto, seja em casa ou na empresa. Vamos até si em {pageData.serviceArea}
             </p>
             <p class="section-text">
                 <b>A sua climatização, a nossa especialidade</b>
