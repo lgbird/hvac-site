@@ -9,7 +9,7 @@ export default async function handler(
   }
   
   try {
-    let nn = await fetch("https://n8n.orthogan.com/webhook/clima-form", {
+    let nn = await fetch("https://n8n.orthogan.com/webhook/clima-phone", {
       method: 'POST', 
       headers: {'Content-Type': 'application/json'}, 
       body: JSON.stringify({
