@@ -1,5 +1,6 @@
 import React from "react";
 
+import Layout from '../components/Layout.js';
 import SEO from '../components/Seo.js';
 import Navbar from '../components/Navbar.js';
 import HeroSection from '../components/HeroSection.js';
@@ -10,14 +11,16 @@ import GoogleTag from '../components/GoogleTag.js';
 
 const PageTemplate = ({ pageContext }) => {
   return (
-    <main>
-      <Navbar home={false} />
-      <HeroSection header={pageContext.header} subheader={pageContext.subheader} />
-      <ContactSection />
-      <ReviewsSection />
-      <Footer />
-      <GoogleTag />
-    </main>
+    <Layout>
+      <main>
+        <Navbar home={false} />
+        <HeroSection header={pageContext.header} subheader={pageContext.subheader} />
+        <ContactSection />
+        <ReviewsSection />
+        <Footer />
+        <GoogleTag />
+      </main>
+    </Layout>
   );
 }
 
