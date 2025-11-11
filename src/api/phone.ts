@@ -14,7 +14,7 @@ export default async function handler(
       headers: {'Content-Type': 'application/json'}, 
       body: JSON.stringify({
         ...req.body,
-        'host': req.headers['host'];
+        'host': req.headers['host'],
         'userAgent': req.headers['user-agent'], 
         'userIp': req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress
       })
