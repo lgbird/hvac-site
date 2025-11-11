@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from 'react';
 
 import WhatsappSvg from '../components/WhatsappSvg.js';
 import './CtaBtn.css';
@@ -6,7 +6,7 @@ import './CtaBtn.css';
 const CtaBtn = () => {
   let phoneNumber = process.env.GATSBY_PHONE_NUMBER;
     return (
-	<a href={`https://api.whatsapp.com/send/?phone=351${phoneNumber}`} class="cta cta-button">
+	<a href={`https://api.whatsapp.com/send/?phone=351${phoneNumber}`} target="_blank" class="cta cta-btn cta-button">
 	  <div class="cta-div">
 	    <WhatsappSvg />
 	    <span>Contate-nos</span>

@@ -26,7 +26,10 @@ const ContactSection = () => {
         const response = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...formState, 'GCLID': getGclid()}),
+          body: JSON.stringify({
+            ...formState,
+            "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries())
+          })
         });
         const data = await response.json();
         if (response.ok && data.success) {
