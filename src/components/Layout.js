@@ -6,7 +6,8 @@ const Layout = ({ children }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
-        PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries())
+        PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+        p: window.location.pathname
       }),
     })
     function handleWaClick(tag) {
@@ -15,7 +16,8 @@ const Layout = ({ children }) => {
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({
                             "T": tag,
-                            "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries())
+                            "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+                            p: window.location.pathname
                     }),
             });
     }
