@@ -28,7 +28,8 @@ const ContactSection = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             ...formState,
-            "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries())
+            "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+            p: window.location.pathname
           })
         });
         const data = await response.json();
