@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const CONTENTSQUARE_TAG = process.env.GATSBY_CONTENTSQUARE_TAG;
+
 const Layout = ({ children }) => {
   const [initialized, setInitialized] = useState(false);
   function loadContentsquareScript() {
@@ -7,7 +9,7 @@ const Layout = ({ children }) => {
     setInitialized(true);
 
     const script = document.createElement('script');
-    script.src = `https://t.contentsquare.net/uxa/82bae2a3f7f6b.js`;
+    script.src = `https://t.contentsquare.net/uxa/${CONTENTSQUARE_TAG}.js`;
     script.async = true;
     document.head.appendChild(script);
 
