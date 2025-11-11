@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Script } from "gatsby";
 
 const GOOGLE_TAG_ID = process.env.GATSBY_GOOGLE_TAG_ID;
+const GOOGLE_ANALYTICS_TAG_ID = process.env.GATSBY_GOOGLE_ANALYTICS_TAG_ID;
 
 export default function GoogleTagManager() {
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function GoogleTagManager() {
       window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', GOOGLE_TAG_ID);
+      gtag('config', GOOGLE_ANALYTICS_TAG_ID);
 
       document.removeEventListener('scroll', loadGoogleTag);
     }
