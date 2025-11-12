@@ -29,7 +29,7 @@ const NotFoundPage = () => {
     <main style={pageStyles}>
       <h1 style={headingStyles}>Oops! Página não encontrada</h1>
       <p style={paragraphStyles}>
-Parece que o link está quebrado ou a página foi movida
+        Parece que o link está quebrado ou a página foi movida
         <br />
         <Link to="/">Volte para a página inicial</Link>.
       </p>

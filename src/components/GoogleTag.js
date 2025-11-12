@@ -16,7 +16,7 @@ export default function GoogleTagManager() {
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
+      function gtag() { window.dataLayer.push(arguments); }
       window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', GOOGLE_TAG_ID);
@@ -25,26 +25,26 @@ export default function GoogleTagManager() {
       document.removeEventListener('scroll', loadGoogleTag);
     }
 
-function handleClickConversion() {
-  const maxWaitTime = 5000; // max wait time in ms
-  const intervalTime = 100; // check every 100ms
-  let waited = 0;
+    function handleClickConversion() {
+      const maxWaitTime = 5000; // max wait time in ms
+      const intervalTime = 100; // check every 100ms
+      let waited = 0;
 
-  function trySendConversion() {
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': `${GOOGLE_TAG_ID}/mgPPCPevy7cbEPLUg-pB`
-      });
-    } else if (waited < maxWaitTime) {
-      waited += intervalTime;
-      setTimeout(trySendConversion, intervalTime);
-    } else {
-      console.warn('gtag not loaded in time, conversion event not sent');
+      function trySendConversion() {
+        if (window.gtag) {
+          window.gtag('event', 'conversion', {
+            'send_to': `${GOOGLE_TAG_ID}/mgPPCPevy7cbEPLUg-pB`
+          });
+        } else if (waited < maxWaitTime) {
+          waited += intervalTime;
+          setTimeout(trySendConversion, intervalTime);
+        } else {
+          console.warn('gtag not loaded in time, conversion event not sent');
+        }
+      }
+
+      trySendConversion();
     }
-  }
-
-  trySendConversion();
-}
 
 
     // Load Google Tag Manager script on scroll
