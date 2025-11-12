@@ -3,11 +3,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `ClimaLisboa`,
-    siteUrl: `https://www.climalisboa.portimaoonline.pt`,
+    title: `ClimAlgarve`,
+    siteUrl: `https://www.climalgarve.portimaoonline.pt`,
     heroHeader: 'Especialistas em ar condicionado',
-    heroSubheader: 'Instalação, reparação e manutenção de ar condicionado em toda Grande Lisboa',
-    serviceArea: 'toda Grande Lisboa'
+    heroSubheader: 'Instalação, reparação e manutenção de ar condicionado em todo o Algarve',
+    serviceArea: 'todo o Algarve'
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -27,6 +27,6 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`, // Adjust if your images are stored elsewhere
       },
-    },  'gatsby-transformer-json',
+    }, 'gatsby-transformer-json',
   ],
 };
