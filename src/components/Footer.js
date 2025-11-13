@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 
-import VentilatorSvg from '../components/VentilatorSvg.js';
 import './Footer.css';
+import RepairSvg from "./RepairSvg.js";
 
 const Footer = () => {
 	const data = useStaticQuery(graphql`
@@ -22,7 +22,7 @@ const Footer = () => {
 				<div class="footer-content">
 					<div class="footer-info">
 						<div class="nav-logo">
-							<VentilatorSvg />
+							<RepairSvg />
 							<span>{data.site.siteMetadata.title}</span>
 						</div>
 						<div class="footer-contact">

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 
-import VentilatorSvg from '../components/VentilatorSvg.js';
+import RepairSvg from '../components/RepairSvg.js';
 import WhatsAppBtn from '../components/whatsappBtn.js';
 import './Navbar.css';
 
@@ -63,7 +63,7 @@ const Navbar = ({ home = true }) => {
 			<nav class="navbar">
 				<div class="nav-container">
 					<div class="nav-logo">
-						<VentilatorSvg />
+						<RepairSvg />
 						<span>{data.site.siteMetadata.title}</span>
 					</div>
 					<button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>

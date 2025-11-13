@@ -3,11 +3,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `ClimAlgarve`,
-    siteUrl: `https://www.climalgarve.portimaoonline.pt`,
-    heroHeader: 'Especialistas em ar condicionado',
+    title: `Reparações Grande Lisboa`,
+    siteUrl: `https://www.reparacoeslisboa.portimaoonline.pt`,
+    heroHeader: 'Reparações eletrodomesticos em Grande Lisboa',
     heroSubheader: 'Instalação, reparação e manutenção de ar condicionado em todo o Algarve',
-    serviceArea: 'todo o Algarve'
+    serviceArea: 'toda Grande Lisboa'
   },
   plugins: [
     "gatsby-plugin-postcss",

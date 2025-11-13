@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ContactSection.css';
 
-function getGclid() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('gclid');
-}
-
 const ContactSection = () => {
   const [formState, setFormState] = useState({
     nome: '',
