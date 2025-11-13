@@ -30,6 +30,7 @@ const Review = ({ text, name, location }) => {
 	return (
 		<div class="review-card">
 			<div class="review-content">
+				<p class="review-stars">⭐ ⭐ ⭐ ⭐ ⭐</p>
 				<p class="review-text">"{text}"</p>
 			</div>
 			<div class="review-author">
