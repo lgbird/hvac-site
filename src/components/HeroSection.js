@@ -3,7 +3,6 @@ import './HeroSection.css';
 import { StaticImage } from 'gatsby-plugin-image'
 
 import CtaBtn from '../components/CtaBtn.js';
-import Svg from "./Svg.js";
 
 const HeroSection = ({ header, subheader }) => (
 	<section class="hero" style={{ position: 'relative', overflow: 'hidden' }}>
