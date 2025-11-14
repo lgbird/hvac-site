@@ -17,8 +17,9 @@ const Menu = ({ home }) => {
 		<ul class="nav-menu" onClick={toggleMenu}>
 			<a href="#quem-somos" class="nav-link"><li>Quem Somos</li></a>
 			<a href="#servicos" class="nav-link"><li>Serviços</li></a>
-			<a href="#contact" class="nav-link"><li>Contacto</li></a>
 			<a href="#reviews" class="nav-link"><li>Avaliações</li></a>
+			<a href="#area-servico" class="nav-link"><li>Area de Serviço</li></a>
+			<a href="#contact" class="nav-link"><li>Contacto</li></a>
 		</ul>
 	)
 	else return (

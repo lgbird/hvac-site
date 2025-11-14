@@ -35,7 +35,7 @@ const WhyUs = () => {
 
                 <StaticImage src="../images/technician.png" />
             </div>
-            <div class="section-container">
+            <div class="section-container btm-padding-section">
                 <div class="features">
                     <div class="feature">
                         <Svg name="24-hours" />
@@ -82,7 +82,7 @@ const USPs = () => {
 
 const Services = () => {
     return (
-        <section id="servicos" class="section section-alt">
+        <section id="servicos" class="section section-alt btm-padding-section">
             <div class="section-container">
                 <div class="services">
                     <div class="service">
@@ -113,7 +113,7 @@ const Services = () => {
 }
 const ServiceArea = () => {
     return (
-        <section class="section">
+        <section id="area-servico" class="section">
             <div class="img-section-container">
                 <h2 class="section-title">Area de Serviço</h2>
                 <StaticImage src="../images/area-servico.png" style={{ marginBottom: "2rem" }} imgClassName="service-area-img" className="service-area-img" />

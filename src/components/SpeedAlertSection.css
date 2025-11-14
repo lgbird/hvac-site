@@ -1,6 +1,7 @@
 .speed-alert {
 	background-color: var(--speed-alert-bg-color);
 	color: #fff;
+	padding: 3rem 0;
 }
 
 .speed-alert-text {

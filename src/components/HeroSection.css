@@ -22,13 +22,14 @@
 .hero-title {
 	font-size: 2.5rem;
 	font-weight: 700;
-	margin-bottom: 1rem;
+	margin-bottom: 2.5rem;
 	line-height: 1.2;
 }
 
 .hero-img {
 	max-height: 300px;
 	max-width: 300px;
+	margin-bottom: 2.5rem;
 }
 
 .hero-subtitle {

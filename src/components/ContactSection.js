@@ -40,11 +40,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" class="section">
+    <section id="contact" class="section btm-padding-section">
       <div class="section-container contact-section">
         <div class="contact-form-container">
           <h2 class="section-title">Contacte-nos</h2>
-          <p class="section-text">In a hurry? Leave us a message and we'll get back to you as quickly as possible</p>
+          <p class="section-text">Tem pressa? Deixe-nos uma mensagem e entraremos em contacto o mais breve possível</p>
           {formStatus === 'success' && (
             <div className="contact-form">
               <div className="message success">Obrigado! Entraremos em contacto em breve</div>
