@@ -7,7 +7,8 @@ module.exports = {
     siteUrl: `https://www.reparacoeslisboa.portimaoonline.pt`,
     heroHeader: 'Reparações eletrodomesticos em Grande Lisboa',
     heroSubheader: 'Instalação, reparação e manutenção de ar condicionado em todo o Algarve',
-    serviceArea: 'toda Grande Lisboa'
+    serviceArea: 'toda Grande Lisboa',
+    phoneNumber: '964609056'
   },
   plugins: [
     "gatsby-plugin-postcss",

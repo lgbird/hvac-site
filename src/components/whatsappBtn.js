@@ -1,10 +1,20 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby'
 
 import WhatsappSvg from '../components/WhatsappSvg.js';
 import './whatsappBtn.css';
 
 const WhatsAppBtn = () => {
-	let phoneNumber = process.env.GATSBY_PHONE_NUMBER;
+	const data = useStaticQuery(graphql`
+	query {
+	  site {
+	    siteMetadata {
+	      phoneNumber
+	    }
+	  }
+	}
+      `)
+	let phoneNumber = data.site.siteMetadata.phoneNumber;
 	let formattedNumber = phoneNumber.replace(/(\d{3})(?=\d)/g, "$1 ");
 	return (
 		<>

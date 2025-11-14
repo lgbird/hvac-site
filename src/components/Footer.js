@@ -10,12 +10,13 @@ const Footer = () => {
 	query {
 	  site {
 	    siteMetadata {
-	      title
+	      title,
+	      phoneNumber
 	    }
 	  }
 	}
       `)
-	let phoneNumber = process.env.GATSBY_PHONE_NUMBER;
+	let phoneNumber = data.site.siteMetadata.phoneNumber;
 	let formattedNumber = phoneNumber.replace(/(\d{3})(?=\d)/g, "$1 ");
 	return (
 		<footer class="footer">
