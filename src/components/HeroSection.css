@@ -1,0 +1,51 @@
+.hero {
+	min-height: calc(100vh - var(--top-navbar-height, 0));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 20px;
+	margin-top: 66px;
+	/* background-image: url('/images/background.png');
+	/* image path relative to the static folder or src */
+	/*background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* cover makes the image scale and cover entire section */
+	width: 100%;
+}
+
+.hero-content {
+	max-width: 800px;
+}
+
+.hero-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	line-height: 1.2;
+}
+
+.hero-img {
+	max-height: 300px;
+	max-width: 300px;
+}
+
+.hero-subtitle {
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+	.hero {
+		min-height: calc(100vh - var(--top-navbar-height, 0) - var(--bottom-cta-height, 0));
+	}
+
+	.hero-title {
+		font-size: 2rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+	}
+}

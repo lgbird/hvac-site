@@ -1,0 +1,10 @@
+.speed-alert {
+	background-color: var(--speed-alert-bg-color);
+	color: #fff;
+}
+
+.speed-alert-text {
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+}

@@ -1,0 +1,23 @@
+.brand-grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.brand img {
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+	/* or object-fit: contain; if you don't want cropping */
+}
+
+@media (min-width: 768px) {
+	.brand-grid {
+		/* Calculate rows to show all images in only 2 rows */
+		grid-template-rows: repeat(2, 1fr);
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(60px, 1fr);
+	}
+}

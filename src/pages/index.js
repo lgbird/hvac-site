@@ -1,6 +1,5 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
-import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from '../components/Layout.js';
 import SEO from '../components/Seo.js';
@@ -12,29 +11,69 @@ import Footer from '../components/Footer.js';
 import CtaBtn from '../components/CtaBtn.js';
 import GoogleTag from '../components/GoogleTag.js';
 import Svg from '../components/Svg.js';
+import SpeedAlertSection from "../components/SpeedAlertSection.js";
+import BrandsSection from "../components/BrandsSection.js";
+import FixedBottomCta from "../components/FixedBottomCta.js";
+import { StaticImage } from "gatsby-plugin-image";
 
-const SpeedAlertBanner = () => {
+const WhyUs = () => {
     return (
-        <section class="section speed-alert">
+        <section id="quem-somos" class="section">
+            <div class="section-container section-double">
+                <div>
+                    <h2 class="section-title">Quem Somos</h2>
+                    <p class="section-text">
+                        Somos a rede líder de  em reparações de eletrodomésticos em Grande Lisboa. Trabalhamos em conjunto com os melhores técnicos e empresas locais especializadas para lhe garantir um serviço rápido e de confiança, 24 horas por dia, 7 dias por semana
+                    </p>
+                    <p class="section-text">
+                        A nossa missão é simples: resolver o seu problema com velocidade e eficácia, para que a sua vida possa voltar à normalidade
+                    </p>
+                    <div class="only-mobile only-mobile-cta">
+                        <CtaBtn />
+                    </div>
+                </div>
+
+                <StaticImage src="../images/technician.png" />
+            </div>
             <div class="section-container">
-                <p class="alert-text">
-                    UMA VEZ RECEBIDA A SUA CHAMADA, UM DO NOSSOS COLABORADORES AGENDARÁ UMA HOR CONSIGO, O MAIS RÁPIDO POSSÍVEL. GERALMENTE PODEMOS EFETUAR P SERVIÇO NA HORA OU NO PRÓPRIO DIA
-                </p>
+                <div class="features">
+                    <div class="feature">
+                        <Svg name="24-hours" />
+                        <p class="feature-text">Disponibilidade 24/7</p>
+                    </div>
+                    <div class="feature">
+                        <Svg name="certified" />
+                        <p class="feature-text">Técnicos Certificados</p>
+                    </div>
+                    <div class="feature">
+                        <Svg name="fast-delivery" />
+                        <p class="feature-text">Serviço Rápido</p>
+                    </div>
+                </div>
+                <CtaBtn />
             </div>
         </section>
     )
 }
 
-const WhyUs = () => {
+const USPs = () => {
     return (
-        <section id="quem-somos" class="section">
+        <section id="usps" class="section">
             <div class="section-container">
-                <h2 class="section-title">Quem Somos</h2>
-                <p class="section-text">
-                    We are the leading appliance repair network for the -LOCATION- area. By working with a collective of local specialists, we guarantee a fast reply and can typically dispatch a technician to your home on the same day.
-                </p>
-                <p class="section-text">
-                    Our collective mission is simple: provide fast, 24/7 service to get your life back to normal, quickly.                        </p>
+                <div class="features">
+                    <div class="feature">
+                        <Svg name="24-hours" />
+                        <p class="feature-text">Disponibilidade 24/7</p>
+                    </div>
+                    <div class="feature">
+                        <Svg name="certified" />
+                        <p class="feature-text">Técnicos Certificados</p>
+                    </div>
+                    <div class="feature">
+                        <Svg name="fast-delivery" />
+                        <p class="feature-text">Serviço Rápido</p>
+                    </div>
+                </div>
                 <CtaBtn />
             </div>
         </section>
@@ -72,62 +111,85 @@ const Services = () => {
         </section>
     )
 }
-const Brands = () => {
+const ServiceArea = () => {
+    return (
+        <section class="section">
+            <div class="img-section-container">
+                <h2 class="section-title">Area de Serviço</h2>
+                <StaticImage src="../images/area-servico.png" style={{ marginBottom: "2rem" }} imgClassName="service-area-img" className="service-area-img" />
+                <p class="section-subtitle">Vamos até si em toda Grande Lisboa!</p>
+            </div>
+        </section>
+    )
+}
+const ContactInfo = () => {
+    let phoneNumber = process.env.GATSBY_PHONE_NUMBER;
+    let formattedNumber = phoneNumber.replace(/(\d{3})(?=\d)/g, "$1 ");
     return (
         <section class="section">
             <div class="section-container">
-                <h2 class="section-title">Trablalhamos com todas a maiores marcas</h2>
-                <div className="brand-grid">
-                    <StaticImage src="../images/brands/aeg.jpg" alt="AEG" />
-                    <StaticImage src="../images/brands/bosch.jpg" alt="Bosch" />
-                    <StaticImage src="../images/brands/indesit.jpg" alt="Indesit" />
-                    <StaticImage width={140} height={53} src="../images/brands/lg.jpg" alt="LG" />
-                    <StaticImage src="../images/brands/miele.jpg" alt="Miele" />
-                    <StaticImage src="../images/brands/roca.jpg" alt="roca" />
-                    <StaticImage src="../images/brands/samsung.jpg" alt="Samsung" />
-                    <StaticImage src="../images/brands/sauber.jpg" alt="sauber" />
-                    <StaticImage src="../images/brands/siemens.jpg" alt="Siemens" />
-                    <StaticImage src="../images/brands/teka.jpg" alt="Teka" />
-                    <StaticImage src="../images/brands/ufesa.jpg" alt="Ufesa" />
-                    <StaticImage src="../images/brands/vaillant.jpg" alt="Vaillant" />
-                    <StaticImage src="../images/brands/vulcano.jpg" alt="Vulcano" />
-                    <StaticImage src="../images/brands/whirlpool.jpg" alt="Whirlpool" />
-                    <StaticImage src="../images/brands/zanussi.jpg" alt="Zanussi" />
-                    <StaticImage src="../images/brands/bauknecht.jpg" alt="Bauknecht" />
-                    <StaticImage src="../images/brands/brandt.jpg" alt="brandt" />
-                    <StaticImage src="../images/brands/carrier.jpg" alt="Carrier" />
-                    <StaticImage src="../images/brands/edesa.jpg" alt="Edesa" />
-                    <StaticImage src="../images/brands/electrolux.jpg" alt="Alectrolux" />
+                <h2 class="section-title">Informações de Contacto</h2>
+                <div>
+                    <div class="contact-info">
+                        <Svg name="whatsapp-cartoon" />
+                        <div class="contact-info-text-block">
+                            <p class="contact-info-title">WhatsApp</p>
+                            <p class="contact-info-text">{formattedNumber}</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <Svg name="phone-24" />
+                        <div class="contact-info-text-block">
+                            <p class="contact-info-title">Telefone</p>
+                            <p class="contact-info-text">{formattedNumber}</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <Svg name="clock" />
+                        <div class="contact-info-text-block">
+                            <p class="contact-info-title">Horário de Funcionamento</p>
+                            <p class="contact-info-text">24 horas, segunda a domingo</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     )
 }
-const ServiceArea = () => {
+
+const ImageRow = () => {
     return (
-        <section class="section">
-            <div class="section-container">
-                <h2 class="section-title">Area de Serviço</h2>
-            </div>
+        <div class="img-row">
+            <StaticImage src="../images/wm-guy.png" />
+            <StaticImage src="../images/wm-repair.png" className="only-desktop" />
+        </div>
+    )
+}
+
+const ResponsiveRow = () => {
+    return (
+        <section class="responsive-row">
+            <ServiceArea />
+            <ContactInfo />
         </section>
     )
 }
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
-        query {
-          site {
-            siteMetadata {
-              title
+            query {
+                site {
+                siteMetadata {
+                title
               description
-              siteUrl
-              heroHeader
-              heroSubheader
-              serviceArea
+            siteUrl
+            heroHeader
+            heroSubheader
+            serviceArea
             }
           }
         }
-      `)
+            `)
     const pageData = data.site.siteMetadata;
 
     return (
@@ -135,15 +197,18 @@ const IndexPage = () => {
             <main>
                 <Navbar home={true} />
                 <HeroSection header={pageData.heroHeader} subheader={pageData.heroSubheader} />
-                <SpeedAlertBanner />
+                <SpeedAlertSection />
                 <WhyUs />
+                <ImageRow />
                 <Services />
-                <Brands />
+                <StaticImage src="../images/wm-repair.png" className="only-mobile" />
+                <BrandsSection />
                 <ReviewsSection />
-                <ServiceArea />
+                <ResponsiveRow />
                 <ContactSection />
                 <Footer />
                 <GoogleTag />
+                <FixedBottomCta />
             </main>
         </Layout>
     )

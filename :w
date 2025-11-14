@@ -9,13 +9,7 @@ const HeroSection = ({ header, subheader }) => (
 	<section class="hero" style={{ position: 'relative', overflow: 'hidden' }}>
 		<div class="hero-content">
 			<h1 class="hero-title">{header}</h1>
-			<StaticImage
-				src="../images/eletrodomesticos.png"
-				alt="Hero Background"
-				className="hero-img"
-				loading="eager"
-				fetchpriority="high"
-			/>
+			<Svg name="washing-machine-repair" />
 			<p class="hero-subtitle">{subheader}</p>
 			<CtaBtn />
 		</div>

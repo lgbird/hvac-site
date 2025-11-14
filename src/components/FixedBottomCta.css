@@ -1,0 +1,29 @@
+.fixed-cta-bottom {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #00bb00;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	font-weight: 600;
+	gap: 0.7rem;
+	padding: 0.8rem 0;
+}
+
+.cta-placeholder {
+	height: var(--bottom-cta-height);
+}
+
+@media (min-width: 769px) {
+	.fixed-cta-bottom {
+		display: none;
+	}
+
+	.cta-placeholder {
+		display: none;
+	}
+}

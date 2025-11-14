@@ -40,72 +40,75 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" class="reviews-section">
-      <div class="section-container">
-        <h2 class="section-title">Contate-nos</h2>
-        {formStatus === 'success' && (
-          <div className="contact-form">
-            <div className="message success">Obrigado! Entraremos em contacto em breve</div>
-          </div>
-        )}
-        {formStatus === 'error' && (
-          <div className="contact-form">
-            <div className="message error">
-              Ups... algo correu mal! Por favor, recarrega a página e tenta novamente
+    <section id="contact" class="section">
+      <div class="section-container contact-section">
+        <div class="contact-form-container">
+          <h2 class="section-title">Contacte-nos</h2>
+          <p class="section-text">In a hurry? Leave us a message and we'll get back to you as quickly as possible</p>
+          {formStatus === 'success' && (
+            <div className="contact-form">
+              <div className="message success">Obrigado! Entraremos em contacto em breve</div>
             </div>
-          </div>
-        )}
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              id="name"
-              name="nome"
-              value={formState.nome}
-              onChange={handleChange}
-              required
-              placeholder="Nome"
-            />
-          </div>
+          )}
+          {formStatus === 'error' && (
+            <div className="contact-form">
+              <div className="message error">
+                Ups... algo correu mal! Por favor, recarrega a página e tenta novamente
+              </div>
+            </div>
+          )}
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                id="name"
+                name="nome"
+                value={formState.nome}
+                onChange={handleChange}
+                required
+                placeholder="Nome"
+              />
+            </div>
 
-          <div className="form-group">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-              required
-              placeholder="Email"
-            />
-          </div>
+            <div className="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                required
+                placeholder="Email"
+              />
+            </div>
 
-          <div className="form-group">
-            <input
-              type="tel"
-              id="phone"
-              name="telefone"
-              value={formState.telefone}
-              onChange={handleChange}
-              placeholder="Telefone"
-            />
-          </div>
+            <div className="form-group">
+              <input
+                type="tel"
+                id="phone"
+                name="telefone"
+                value={formState.telefone}
+                onChange={handleChange}
+                placeholder="Telefone"
+              />
+            </div>
 
-          <div className="form-group">
-            <textarea
-              id="message"
-              name="mensagem"
-              value={formState.mensagem}
-              onChange={handleChange}
-              rows="5"
-              placeholder="Mensagem"
-            />
-          </div>
+            <div className="form-group">
+              <textarea
+                id="message"
+                name="mensagem"
+                value={formState.mensagem}
+                onChange={handleChange}
+                rows="5"
+                placeholder="Mensagem"
+              />
+            </div>
 
-          <button type="submit" className="cta-button" style={{ width: "100%" }}>Enviar</button>
-        </form>
+            <button type="submit" className="cta-button" style={{ width: "100%" }}>Enviar</button>
+          </form>
+        </div>
       </div>
-    </section>
+    </section >
   );
 };
 
