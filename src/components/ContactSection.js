@@ -44,6 +44,7 @@ const ContactSection = () => {
     }
   };
 
+
   return (
     <section id="contact" class="reviews-section">
       <div class="section-container">
