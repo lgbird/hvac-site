@@ -176,11 +176,11 @@ body {
 }
 
 .only-desktop {
-	display: block;
+	display: block !important;
 }
 
 .only-mobile {
-	display: none;
+	display: none !important;
 }
 
 .only-mobile-cta {
@@ -220,15 +220,15 @@ body {
 
 
 	.only-desktop {
-		display: none;
+		display: none !important;
 	}
 
 	.only-mobile {
-		display: block;
+		display: block !important;
 	}
 
 	.only-mobile-cta {
-		display: flex;
+		display: flex !important;
 		margin-bottom: 5rem;
 		justify-content: center;
 	}

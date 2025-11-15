@@ -1,9 +1,9 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from 'gatsby'
 
 import RepairSvg from '../components/RepairSvg.js';
 import WhatsAppBtn from '../components/whatsappBtn.js';
 import './Navbar.css';
+import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
 function toggleMenu() {
 	const navMenu = document.querySelector('.nav-menu');
@@ -19,27 +19,22 @@ const Menu = ({ home }) => {
 			<a href="#servicos" class="nav-link"><li>Serviços</li></a>
 			<a href="#reviews" class="nav-link"><li>Avaliações</li></a>
 			<a href="#area-servico" class="nav-link"><li>Area de Serviço</li></a>
-			<a href="#contact" class="nav-link"><li>Contacto</li></a>
+			<a href="#contact-info" class="nav-link"><li>Contacto</li></a>
 		</ul>
 	)
 	else return (
 		<ul class="nav-menu" onClick={toggleMenu}>
-			<a href="#contact" class="nav-link"><li>Contacto</li></a>
+			<a href="#quem-somos" class="nav-link"><li>Quem Somos</li></a>
+			<a href="#servicos" class="nav-link"><li>Serviços</li></a>
 			<a href="#reviews" class="nav-link"><li>Avaliações</li></a>
+			<a href="#area-servico" class="nav-link"><li>Area de Serviço</li></a>
+			<a href="#contact-info" class="nav-link"><li>Contacto</li></a>
 		</ul>
 	)
 }
 
 const Navbar = ({ home = true }) => {
-	const data = useStaticQuery(graphql`
-	query {
-	  site {
-	    siteMetadata {
-	      title
-	    }
-	  }
-	}
-      `)
+	const { title } = useSiteConfigHook();
 
 	React.useEffect(() => {
 		function handleDocumentClick(event) {
@@ -65,7 +60,7 @@ const Navbar = ({ home = true }) => {
 				<div class="nav-container">
 					<div class="nav-logo">
 						<RepairSvg />
-						<span>{data.site.siteMetadata.title}</span>
+						<span>{title}</span>
 					</div>
 					<button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
 						<span></span>

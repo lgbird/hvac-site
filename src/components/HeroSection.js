@@ -9,7 +9,7 @@ const HeroSection = ({ header, subheader }) => (
 		<div class="hero-content">
 			<h1 class="hero-title">{header}</h1>
 			<StaticImage
-				src="../images/eletrodomesticos.png"
+				src="../images/eletrodomesticos-r.png"
 				alt="Hero Background"
 				className="hero-img"
 				loading="eager"

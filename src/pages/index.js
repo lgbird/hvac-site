@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from '../components/Layout.js';
@@ -16,6 +15,7 @@ import SpeedAlertSection from "../components/SpeedAlertSection.js";
 import BrandsSection from "../components/BrandsSection.js";
 import FixedBottomCta from "../components/FixedBottomCta.js";
 import ContactInfoSection from "../components/ContactInfoSection.js";
+import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
 const WhyUs = () => {
     return (
@@ -37,30 +37,6 @@ const WhyUs = () => {
                 <StaticImage src="../images/technician.png" />
             </div>
             <div class="section-container btm-padding-section">
-                <div class="features">
-                    <div class="feature">
-                        <Svg name="24-hours" />
-                        <p class="feature-text">Disponibilidade 24/7</p>
-                    </div>
-                    <div class="feature">
-                        <Svg name="certified" />
-                        <p class="feature-text">Técnicos Certificados</p>
-                    </div>
-                    <div class="feature">
-                        <Svg name="fast-delivery" />
-                        <p class="feature-text">Serviço Rápido</p>
-                    </div>
-                </div>
-                <CtaBtn />
-            </div>
-        </section>
-    )
-}
-
-const USPs = () => {
-    return (
-        <section id="usps" class="section">
-            <div class="section-container">
                 <div class="features">
                     <div class="feature">
                         <Svg name="24-hours" />
@@ -143,27 +119,12 @@ const ResponsiveRow = () => {
 }
 
 const IndexPage = () => {
-    const data = useStaticQuery(graphql`
-            query {
-                site {
-                siteMetadata {
-                title
-              description
-            siteUrl
-            heroHeader
-            heroSubheader
-            serviceArea
-            }
-          }
-        }
-            `)
-    const pageData = data.site.siteMetadata;
-
+    const { heroHeader, heroSubheader } = useSiteConfigHook();
     return (
         <Layout>
             <main>
                 <Navbar home={true} />
-                <HeroSection header={pageData.heroHeader} subheader={pageData.heroSubheader} />
+                <HeroSection header={heroHeader} subheader={heroSubheader} />
                 <SpeedAlertSection />
                 <WhyUs />
                 <ImageRow />

@@ -1,23 +1,12 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from 'gatsby'
 
 import './Footer.css';
 import RepairSvg from "./RepairSvg.js";
 import { StaticImage } from "gatsby-plugin-image";
+import { useSiteConfigHook } from "../hooks/siteConfigHook";
 
 const Footer = () => {
-	const data = useStaticQuery(graphql`
-	query {
-	  site {
-	    siteMetadata {
-	      title,
-	      phoneNumber
-	    }
-	  }
-	}
-      `)
-	let phoneNumber = data.site.siteMetadata.phoneNumber;
-	let formattedNumber = phoneNumber.replace(/(\d{3})(?=\d)/g, "$1 ");
+	const { title, phoneNumber, formattedNumber } = useSiteConfigHook();
 	return (
 		<footer class="footer">
 			<div class="container">
@@ -25,7 +14,7 @@ const Footer = () => {
 					<div class="footer-info">
 						<div class="nav-logo">
 							<RepairSvg />
-							<span>{data.site.siteMetadata.title}</span>
+							<span>{title}</span>
 						</div>
 						<div class="footer-contact">
 							<div class="contact-item">
@@ -47,7 +36,7 @@ const Footer = () => {
 						<a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">
 							<StaticImage src="../images/livro_reclamacoes.webp" />
 						</a>
-						<p>&copy; 2024 {data.site.siteMetadata.title}. Todos os direitos reservados.</p>
+						<p>&copy; 2024 {title}. Todos os direitos reservados.</p>
 					</div>
 				</div>
 			</div>
