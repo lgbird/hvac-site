@@ -1,12 +1,14 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
+import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 import { SiteContext } from "../components/SiteContext.js";
 
 import SEO from '../components/Seo.js';
 import Layout from '../components/Layout.js';
 import Navbar from '../components/Navbar.js';
 import HeroSection from '../components/HeroSection.js';
+import SpeedAlertSection from "../components/SpeedAlertSection.js";
 import BelowFoldSection from "../components/BelowFoldSection.js";
 import ServicesSection from "../components/ServicesSection.js";
 import BrandsSection from "../components/BrandsSection.js";
@@ -56,7 +58,7 @@ const PageTemplate = ({ pageContext }) => {
       <Layout>
         <main>
           <Navbar home={false} />
-          <HeroSection header={pageContext.header} subheader={pageContext.subheader} />
+          <HeroSection header={pageContext.header} subheader={pageContext.subheader} campaignTag={pageContext.campaignTag} />
           <SpeedAlertSection />
           <BelowFoldSection />
           <ImageRow />
