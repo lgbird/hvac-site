@@ -6,24 +6,34 @@ import './ReviewsSection.css';
 const reviews = [
 	{
 		name: "Luís Silva",
-		location: "Lagos",
-		text: "Excelente serviço! Instalaram o meu AC novo de forma rápida e muito profissional. O técnico foi super cuidadoso com a limpeza no final. Recomendo a 100%. Preço justo pelo serviço prestado."
+		location: "Lisboa",
+		text: "Técnico muito competente. Veio no próprio dia, diagnosticou e resolveu de imediato. Excelente profissional"
 	},
 	{
 		name: "Carla Mendes",
-		location: "Albufeira",
-		text: "A minha avaria foi resolvida no mesmo dia que liguei. O técnico, Rui, foi muito simpático e explicou-me tudo direitinho. Já não passo calor! Obrigada pelo ótimo trabalho."
+		location: "Lisboa",
+		text: "A minha máquina deixou de centrifugar e em duas horas estava arranjada. Preço justo e serviço super rápido, recomendo!"
 	},
 	{
 		name: "António Ferreira",
-		location: "Portimão",
-		text: "Bom serviço de manutenção. Foram pontuais e fizeram uma limpeza completa à minha unidade. Só não dou 5 estrelas porque o preço foi um bocado puxado, mas ficou tudo a funcionar perfeitamente."
+		location: "Cascais",
+		text: "Foi o técnico que me atendeu mais rapidamente. Repararam no dia e ficou perfeito"
 	},
 	{
 		name: "Sofia Almeida",
-		location: "Faro",
-		text: "Já usei esta empresa para instalação e para uma reparação. São sérios, eficientes e o orçamento foi respeitado. Já recomendei aos meus vizinhos. É raro encontrar um serviço tão bom e de confiança."
-	}
+		location: "Mafra",
+		text: "Cumpren o que prometen. Contactei de manhã e à tarde estava tudo resolvido. Cinco estrelas!"
+	},
+	{
+		name: "Tomás Ribeiro",
+		location: "Odivelas",
+		text: "Atendimento fantástico e resolução de problemas na hora. É raro encontrar um serviço tão eficiente. Voltarei a contactar sem dúvida"
+	},
+	{
+		name: "Pedro Pinto",
+		location: "Carregado",
+		text: "O técnico explicou-me o problema, deu o orçamento e arranjou tudo no local. Muito transparente e eficaz"
+	},
 ]
 
 const Review = ({ text, name, location }) => {
