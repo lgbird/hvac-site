@@ -1,11 +1,11 @@
 .hero {
-	min-height: calc(100vh - var(--top-navbar-height, 0));
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	padding: 0 20px;
 	margin-top: 66px;
+	min-height: calc(100vh - var(--top-navbar-height, 0) - var(--bottom-cta-height, 0));
 	/* background-image: url('/images/background.png');
 	/* image path relative to the static folder or src */
 	/*background-position: center;
@@ -20,7 +20,7 @@
 }
 
 .hero-title {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-weight: 700;
 	margin-bottom: 2.5rem;
 	line-height: 1.2;
@@ -33,20 +33,21 @@
 }
 
 .hero-subtitle {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	margin-bottom: 2rem;
 }
 
-@media (max-width: 768px) {
+/* Styles for desktop (larger screens) */
+@media (min-width: 768px) {
 	.hero {
-		min-height: calc(100vh - var(--top-navbar-height, 0) - var(--bottom-cta-height, 0));
+		min-height: calc(100vh - var(--top-navbar-height, 0));
 	}
 
 	.hero-title {
-		font-size: 2rem;
+		font-size: 2.5rem;
 	}
 
 	.hero-subtitle {
-		font-size: 1.125rem;
+		font-size: 1.25rem;
 	}
 }

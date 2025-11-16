@@ -1,11 +1,11 @@
 import * as React from "react"
-import { useSiteConfigHook } from "../hooks/siteConfigHook";
 
 import './ContactInfoSection.css';
 import Svg from '../components/Svg.js';
+import { SiteContext } from "./SiteContext";
 
 const ContactInfoSection = () => {
-  const { phoneNumber, formattedNumber } = useSiteConfigHook();
+  const { waLink, phoneNumber, formattedNumber } = React.useContext(SiteContext);
   return (
     <section id="contact-info" class="section">
       < div class="section-container" >
@@ -15,7 +15,7 @@ const ContactInfoSection = () => {
             <Svg name="whatsapp-cartoon" />
             <div class="contact-info-text-block">
               <p class="contact-info-title">WhatsApp</p>
-              <a class="nav-link" href={`https://api.whatsapp.com/send/?phone=351${phoneNumber}`} target="_blank">
+              <a class="nav-link" href={waLink} target="_blank">
                 {formattedNumber}
               </a>
             </div>

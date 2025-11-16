@@ -4,8 +4,44 @@
 	padding: 3rem 0;
 }
 
+.speed-alert-contact-info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
 .speed-alert-text {
 	font-size: 1rem;
 	font-weight: 600;
 	text-align: center;
+}
+
+.speed-alert-text-large {
+	font-size: 1.6rem;
+}
+
+.icon-btn {
+	background-color: red;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-radius: 100%;
+	justify-content: center;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s ease;
+}
+
+.icon-btn:hover {
+	transform: scale(1.1);
+}
+
+.wa-icon-btn {
+	background-color: var(--wa-btn-color);
+}
+
+.phone-icon-btn {
+	background-color: var(--phone-btn-color);
 }

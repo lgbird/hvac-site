@@ -4,9 +4,11 @@ import './Footer.css';
 import RepairSvg from "./RepairSvg.js";
 import { StaticImage } from "gatsby-plugin-image";
 import { useSiteConfigHook } from "../hooks/siteConfigHook";
+import { SiteContext } from "./SiteContext";
 
 const Footer = () => {
-	const { title, phoneNumber, formattedNumber } = useSiteConfigHook();
+	const { title } = useSiteConfigHook();
+	const { phoneNumber, formattedNumber, waLink } = React.useContext(SiteContext);
 	return (
 		<footer class="footer">
 			<div class="container">
@@ -19,11 +21,11 @@ const Footer = () => {
 						<div class="footer-contact">
 							<div class="contact-item">
 								<span class="contact-label">WhatsApp:</span>
-								<a href={`tel:+351${phoneNumber}`} class="footer-link">+351 {formattedNumber}</a>
+								<a href={waLink} target="_blank" class="footer-link">+351 {formattedNumber}</a>
 							</div>
 							<div class="contact-item">
 								<span class="contact-label">Telefone:</span>
-								<a href={`tel:+351${phoneNumber}`} class="footer-link">+351 {formattedNumber}</a>
+								<a href={`tel:+351${phoneNumber}`} class="footer-link" target="_blank">+351 {formattedNumber}</a>
 							</div>
 						</div>
 					</div>

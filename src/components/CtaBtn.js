@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 
+import { SiteContext } from './SiteContext';
 import './CtaBtn.css';
 import PhoneSvg from './PhoneSvg.js';
+import WhatsappSvg from './WhatsappSvg';
 
 const CtaBtn = () => {
-	let phoneNumber = process.env.GATSBY_PHONE_NUMBER;
+	const { waLink } = React.useContext(SiteContext);
 	return (
-		<a href={`https://api.whatsapp.com/send/?phone=351${phoneNumber}`} target="_blank" class="cta cta-btn cta-button">
+		<a href={waLink} target="_blank" class="cta cta-btn cta-button">
 			<div class="cta-div">
-				<PhoneSvg />
+				<WhatsappSvg />
 				<span>Agende já!</span>
 			</div>
 		</a>

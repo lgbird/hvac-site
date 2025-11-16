@@ -1,0 +1,41 @@
+.services {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
+	gap: 2rem;
+	margin-bottom: 3rem;
+}
+
+.service {
+	text-align: center;
+	padding: 2rem;
+}
+
+.service-title {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	opacity: 0.8;
+}
+
+.service-text {
+	font-size: 1.125rem;
+	opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+
+	.services {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.service {
+		padding: 1rem;
+	}
+
+	.service-title {
+		font-size: 1.6rem;
+	}
+
+}

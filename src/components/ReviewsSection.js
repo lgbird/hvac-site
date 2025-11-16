@@ -41,7 +41,7 @@ const Review = ({ text, name, location }) => {
 	)
 }
 
-const ReviewsSection = () => {
+const ReviewsSection = ({ waLink }) => {
 	let children = reviews.map(r => Review(r));
 	return (
 		<section id="reviews" class="reviews-section">
@@ -50,7 +50,7 @@ const ReviewsSection = () => {
 				<div class="reviews-grid">
 					{children}
 				</div>
-				<CtaBtn />
+				<CtaBtn waLink={waLink} />
 			</div>
 		</section>
 	)

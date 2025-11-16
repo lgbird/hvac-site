@@ -11,6 +11,7 @@ export const useSiteConfigHook = () => {
 					heroSubheader
 					serviceArea
 					phoneNumber
+					waMessage
 				}
 			}
 		}

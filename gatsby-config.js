@@ -3,12 +3,13 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Reparações Grande Lisboa`,
+    title: `Reparações Lisboa`,
     siteUrl: `https://www.reparacoeslisboa.portimaoonline.pt`,
-    heroHeader: 'Reparações eletrodomesticos em Grande Lisboa',
-    heroSubheader: 'Instalação, reparação e manutenção de ar condicionado em todo o Algarve',
+    heroHeader: 'Reparação eletrodomésticos em Grande Lisboa',
+    heroSubheader: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Vamos até si em toda Grande Lisboa!',
     serviceArea: 'toda Grande Lisboa',
-    phoneNumber: '964609056'
+    phoneNumber: '964609056',
+    waMessage: 'Olá! Gostaria de reparar um...'
   },
   plugins: [
     "gatsby-plugin-postcss",

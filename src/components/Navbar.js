@@ -1,7 +1,6 @@
 import * as React from "react"
 
 import RepairSvg from '../components/RepairSvg.js';
-import WhatsAppBtn from '../components/whatsappBtn.js';
 import './Navbar.css';
 import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
@@ -55,23 +54,20 @@ const Navbar = ({ home = true }) => {
 	}, []);
 
 	return (
-		<>
-			<nav class="navbar">
-				<div class="nav-container">
-					<div class="nav-logo">
-						<RepairSvg />
-						<span>{title}</span>
-					</div>
-					<button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-					<Menu home={home} />
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="nav-logo">
+					<RepairSvg />
+					<span>{title}</span>
 				</div>
-			</nav>
-			<WhatsAppBtn />
-		</>
+				<button class="nav-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<Menu home={home} />
+			</div>
+		</nav>
 	)
 }
 

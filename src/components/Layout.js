@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 
+import WhatsAppBtn from '../components/whatsappBtn.js';
+import GoogleTag from '../components/GoogleTag.js';
+import { SiteContext } from "./SiteContext.js";
+
 const CONTENTSQUARE_TAG = process.env.GATSBY_CONTENTSQUARE_TAG;
 
 const Layout = ({ children }) => {
+  const { waLink, formattedNumber } = React.useContext(SiteContext);
   const [initialized, setInitialized] = useState(false);
   function loadContentsquareScript() {
     if (initialized) return;
@@ -16,25 +21,33 @@ const Layout = ({ children }) => {
     document.removeEventListener('scroll', loadContentsquareScript);
   }
   function handleWaClick(tag) {
-    fetch('/api/whatsapp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        "T": tag,
-        "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-        p: window.location.pathname
-      }),
-    });
+    try {
+      fetch('/api/whatsapp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          "T": tag,
+          "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+          p: window.location.pathname
+        }),
+      });
+    } catch (e) {
+      console.log(e)
+    }
   }
   useEffect(() => {
-    fetch("/api/page", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-        p: window.location.pathname
-      }),
-    })
+    try {
+      fetch("/api/page", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+          p: window.location.pathname
+        }),
+      })
+    } catch (e) {
+      console.log(e)
+    }
 
     const ctaElement = document.querySelector('.cta-float');
     ctaElement.addEventListener('click', () => handleWaClick('float'));
@@ -55,7 +68,13 @@ const Layout = ({ children }) => {
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
+      <GoogleTag />
+    </>
+  )
 };
 
 export default Layout;

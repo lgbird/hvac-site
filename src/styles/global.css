@@ -13,10 +13,12 @@ body {
 }
 
 :root {
-	--bottom-cta-height: 67px;
+	--bottom-cta-height: 0px;
 	--top-navbar-height: 66px;
 	--speed-alert-bg-color: #C62828;
 	--section-top-offset: calc(var(--top-navbar-height) + 1rem);
+	--wa-btn-color: #25d366;
+	--phone-btn-color: #1976D2;
 }
 
 .container {
@@ -59,15 +61,6 @@ body {
 	align-items: center;
 }
 
-.section-double {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-}
-
-.section-double-container {
-	padding-bottom: 5rem;
-}
-
 .section-title {
 	font-size: 2rem;
 	font-weight: 600;
@@ -89,56 +82,7 @@ body {
 	opacity: 0.8;
 }
 
-/* Services */
-.services {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: auto auto;
-	gap: 2rem;
-	margin-bottom: 3rem;
-}
 
-.service {
-	text-align: center;
-	padding: 2rem;
-}
-
-.service-title {
-	font-size: 2rem;
-	font-weight: 700;
-	margin-bottom: 1rem;
-	opacity: 0.8;
-}
-
-.service-text {
-	font-size: 1.125rem;
-	opacity: 0.8;
-}
-
-/* Features */
-.features {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
-	margin-bottom: 3rem;
-}
-
-.feature {
-	text-align: center;
-	padding: 2rem;
-}
-
-.feature-title {
-	font-size: 1.5rem;
-	font-weight: 600;
-	margin-bottom: 1rem;
-}
-
-.feature-text {
-	opacity: 0.8;
-	font-size: 1.4rem;
-	font-weight: 600;
-}
 
 .row {
 	display: flex;
@@ -192,30 +136,6 @@ body {
 
 	.section-title {
 		font-size: 1.75rem;
-	}
-
-	.services {
-		grid-template-columns: 1fr;
-		gap: 1rem;
-	}
-
-	.section-double {
-		display: flex;
-		flex-direction: column;
-		padding-bottom: 5rem;
-	}
-
-	.features {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.service {
-		padding: 1rem;
-	}
-
-	.service-title {
-		font-size: 1.6rem;
 	}
 
 

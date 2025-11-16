@@ -15,10 +15,19 @@ const PageTemplate = ({ pageContext }) => {
       <main>
         <Navbar home={false} />
         <HeroSection header={pageContext.header} subheader={pageContext.subheader} />
+        <SpeedAlertSection />
+        <WhyUs />
+        <ImageRow />
+        <Services />
+        <StaticImage src="../images/wm-repair.png" className="only-mobile" />
+        <BrandsSection />
+        <ReviewsSection />
+        <ResponsiveRow />
         <ContactSection />
         <ReviewsSection />
         <Footer />
         <GoogleTag />
+        <FixedBottomCta />
       </main>
     </Layout>
   );
