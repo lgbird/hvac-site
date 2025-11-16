@@ -16,7 +16,7 @@ export async function onRequest(context) {
     const xForwardedFor = request.headers.get('x-forwarded-for');
     const userIp = xForwardedFor ? xForwardedFor.split(',')[0] : request.headers.get('cf-connecting-ip');
 
-    await fetch("https://n8n.orthogan.com/webhook/replisboa-page", {
+    await fetch("https://n8n.orthogan.com/webhook/replisboa-form", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...reqBody, host, userAgent, userIp })
