@@ -4,21 +4,22 @@ import WhatsAppBtn from '../components/whatsappBtn.js';
 import GoogleTag from '../components/GoogleTag.js';
 import { SiteContext } from "./SiteContext.js";
 
-const CONTENTSQUARE_TAG = process.env.GATSBY_CONTENTSQUARE_TAG;
-
+<script type="text/javascript">
+</script>
 const Layout = ({ children }) => {
   const { waLink, formattedNumber } = React.useContext(SiteContext);
   const [initialized, setInitialized] = useState(false);
-  function loadContentsquareScript() {
+  function loadClarity() {
     if (initialized) return;
     setInitialized(true);
 
-    const script = document.createElement('script');
-    script.src = `https://t.contentsquare.net/uxa/${CONTENTSQUARE_TAG}.js`;
-    script.async = true;
-    document.head.appendChild(script);
+    (function(c, l, a, r, i, t, y) {
+      c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "u76pysinte");
 
-    document.removeEventListener('scroll', loadContentsquareScript);
+    document.removeEventListener('scroll', loadClarity);
   }
   function handleWaClick(tag) {
     try {
@@ -55,12 +56,12 @@ const Layout = ({ children }) => {
     for (const el of ctaElements) {
       el.addEventListener('click', () => handleWaClick('main'));
     }
-    document.addEventListener('scroll', loadContentsquareScript);
-    document.addEventListener('click', loadContentsquareScript);
+    document.addEventListener('scroll', loadClarity);
+    document.addEventListener('click', loadClarity);
 
     return () => {
-      document.removeEventListener('scroll', loadContentsquareScript);
-      document.removeEventListener('click', loadContentsquareScript);
+      document.removeEventListener('scroll', loadClarity);
+      document.removeEventListener('click', loadClarity);
       ctaElement.removeEventListener('click', () => handleWaClick('float'));
       for (const el of ctaElements) {
         el.removeEventListener('click', () => handleWaClick('main'));
