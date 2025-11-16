@@ -36,17 +36,23 @@ const Layout = ({ children }) => {
     }
   }
   useEffect(() => {
-    try {
-      fetch("/api/page", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-          p: window.location.pathname
-        }),
-      })
-    } catch (e) {
-      console.log(e)
+    const blocked = [
+      'AdsBot-Google (+http://www.google.com/adsbot.html)',
+      'GoogleOther'
+    ];
+    if (!blocked.includes(window.navigator.userAgent) && window.location.host !== "localhost:8000") {
+      try {
+        fetch("/api/page", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+            p: window.location.pathname
+          }),
+        })
+      } catch (e) {
+        console.log(e)
+      }
     }
 
     const ctaElement = document.querySelector('.cta-float');
