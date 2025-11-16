@@ -50,6 +50,7 @@ const Layout = ({ children }) => {
       console.log(e)
     }
 
+
     const ctaElement = document.querySelector('.cta-float');
     ctaElement.addEventListener('click', () => handleWaClick('float'));
     const ctaElements = document.querySelectorAll('.cta-btn');
