@@ -35,7 +35,7 @@ const Footer = () => {
 							<span> | </span>
 							<a href="/politica-cookies" target="_blank" class="footer-link">Politica de Cookies</a>
 						</div>
-						<a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">
+						<a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" aria-label="livro reclamacoes">
 							<StaticImage src="../images/livro_reclamacoes.webp" />
 						</a>
 						<p>&copy; 2024 {title}. Todos os direitos reservados.</p>

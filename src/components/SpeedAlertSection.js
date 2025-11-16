@@ -10,11 +10,11 @@ const SpeedAlertSection = () => {
     <section class="section speed-alert">
       <div class="section-container">
         <div class="speed-alert-contact-info">
-          <a href={waLink} target="_blank" class="icon-btn wa-icon-btn">
+          <a href={waLink} target="_blank" class="icon-btn wa-icon-btn" aria-label='whatsapp'>
             <WhatsappSvg size={35} />
           </a>
           <span class="speed-alert-text speed-alert-text-large">{formattedNumber}</span>
-          <a href={`tel:+351${phoneNumber}`} target="_blank" class="icon-btn phone-icon-btn">
+          <a href={`tel:+351${phoneNumber}`} target="_blank" class="icon-btn phone-icon-btn" aria-label='telefone'>
             <PhoneSvg size={35} />
           </a>
         </div>

@@ -56,7 +56,7 @@ const HowItWorks = () => {
         <div class="steps-container">
           <div class="step step-1">
             <div class="step-badge">1</div>
-            <h1 class="step-title">Contacto imediato</h1>
+            <h2 class="step-title">Contacto imediato</h2>
             <p>
               Ao contactar-nos, acionamos de imediato a nossa rede de profissionais na sua área.
             </p>
@@ -66,7 +66,7 @@ const HowItWorks = () => {
           </div>
           <div class="step step-2">
             <div class="step-badge">2</div>
-            <h1 class="step-title">Deslocação do técnico</h1>
+            <h2 class="step-title">Deslocação do técnico</h2>
             <p>
               Um técnico credenciado desloca-se a sua casa. Diagnostica o problema e apresenta-lhe um orçamento detalhado na hora.
             </p>
@@ -76,7 +76,7 @@ const HowItWorks = () => {
           </div>
           <div class="step step-3">
             <div class="step-badge">3</div>
-            <h1 class="step-title">Reparação</h1>
+            <h2 class="step-title">Reparação</h2>
             <p>Dependendo do problema, a reparação é feita:</p>
             <p>1. No local, de imediato.</p>
             <p>2. Ou nas nossas instalações</p>
@@ -84,7 +84,7 @@ const HowItWorks = () => {
           </div>
           <div class="step step-4">
             <div class="step-badge">4</div>
-            <h1 class="step-title">Entrega</h1>
+            <h2 class="step-title">Entrega</h2>
             <p>
               Entrega do artigo reparado. Todo o serviço de reparação beneficia de uma garantia sólida.
             </p>
