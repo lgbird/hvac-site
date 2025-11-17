@@ -69,6 +69,7 @@ const Layout = ({ children }) => {
   }, []);
 
   return (
+
     <>
       {children}
       <WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
