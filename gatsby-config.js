@@ -4,6 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Reparações Lisboa`,
+    description: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Vamos até si em toda Grande Lisboa!',
     siteUrl: `https://www.reparacoeslisboa.portimaoonline.pt`,
     heroHeader: 'Reparação eletrodomésticos em Grande Lisboa',
     heroSubheader: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Vamos até si em toda Grande Lisboa!',
