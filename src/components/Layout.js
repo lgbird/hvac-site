@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CookieConsent from "react-cookie-consent";
 
 import WhatsAppBtn from '../components/whatsappBtn.js';
 import GoogleTag from '../components/GoogleTag.js';
@@ -6,6 +7,16 @@ import { SiteContext } from "./SiteContext.js";
 
 const Layout = ({ children }) => {
   const { waLink, formattedNumber } = React.useContext(SiteContext);
+  const [consent, setConsent] = useState(false);
+
+  useEffect(() => {
+    console.log("EFFECT")
+    if (consent) {
+      window.clarity('set', 'consent', true); // if using direct code
+      console.log("CONSENT")
+      // or dynamically load clarity script here if not loaded yet
+    }
+  }, [consent]);
   const [initialized, setInitialized] = useState(false);
   function loadClarity() {
     if (initialized) return;
@@ -73,6 +84,13 @@ const Layout = ({ children }) => {
       {children}
       <WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
       <GoogleTag />
+      <CookieConsent
+        onAccept={() => setConsent(true)}
+        cookieName="gatsby-gdpr-google-analytics"
+        enableDeclineButton
+      >
+        This website uses cookies to improve user experience.
+      </CookieConsent>
     </>
   )
 };
