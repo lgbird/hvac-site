@@ -29,6 +29,18 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`, // Adjust if your images are stored elsewhere
       },
-    }, 'gatsby-transformer-json',
+    },
+    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-plugin-clarity`,
+      options: {
+        // String value for your clarity project ID
+        clarity_project_id: 'u76pysinte',
+        // Boolean value for enabling clarity while developing
+        // true will enable clarity tracking code on both development and production environments
+        // false will enable clarity tracking code on production environment only
+        enable_on_dev_env: true
+      },
+    }
   ],
 };
