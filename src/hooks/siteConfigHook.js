@@ -6,6 +6,7 @@ export const useSiteConfigHook = () => {
 			site {
 				siteMetadata {
 					title
+					description
 					siteUrl
 					heroHeader
 					heroSubheader
