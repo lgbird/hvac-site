@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import WhatsAppBtn from '../components/whatsappBtn.js';
 import GoogleTag from '../components/GoogleTag.js';
 import { SiteContext } from "./SiteContext.js";
+import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
 const Layout = ({ children }) => {
   const { clartityTag } = useSiteConfigHook();
