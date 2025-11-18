@@ -5,6 +5,7 @@ import GoogleTag from '../components/GoogleTag.js';
 import { SiteContext } from "./SiteContext.js";
 
 const Layout = ({ children }) => {
+  const { clartityTag } = useSiteConfigHook();
   const { waLink, formattedNumber } = React.useContext(SiteContext);
   const [initialized, setInitialized] = useState(false);
   function loadClarity() {
@@ -15,7 +16,7 @@ const Layout = ({ children }) => {
       c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
       t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "u76pysinte");
+    })(window, document, "clarity", "script", clartityTag);
 
     document.removeEventListener('scroll', loadClarity);
     document.removeEventListener('click', loadClarity);

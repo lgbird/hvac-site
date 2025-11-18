@@ -10,7 +10,10 @@ module.exports = {
     heroSubheader: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Vamos até si em toda Grande Lisboa!',
     serviceArea: 'toda Grande Lisboa',
     phoneNumber: '964609056',
-    waMessage: 'Olá! Gostaria de reparar um...'
+    waMessage: 'Olá! Gostaria de reparar um...',
+    googleTag: 'AW-17670662770',
+    googleConversionAction: 'mgPPCPevy7cbEPLUg-pB',
+    clarityTag: 'u76pysinte'
   },
   plugins: [
     "gatsby-plugin-postcss",

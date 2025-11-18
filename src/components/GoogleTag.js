@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { Script } from "gatsby";
 
-const GOOGLE_TAG_ID = process.env.GATSBY_GOOGLE_TAG_ID;
-const GOOGLE_ANALYTICS_TAG_ID = process.env.GATSBY_GOOGLE_ANALYTICS_TAG_ID;
+import { useSiteConfigHook } from '../hooks/siteConfigHook';
+
 
 export default function GoogleTagManager() {
+  const { googleTag, googleConversionAction } = useSiteConfigHook();
   useEffect(() => {
     function loadGoogleTag() {
       if (window.googleTagLoaded) return;
       window.googleTagLoaded = true;
 
       const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${googleTag}`;
       script.async = true;
       document.head.appendChild(script);
 
@@ -19,8 +19,8 @@ export default function GoogleTagManager() {
       function gtag() { window.dataLayer.push(arguments); }
       window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', GOOGLE_TAG_ID);
-      gtag('config', GOOGLE_ANALYTICS_TAG_ID);
+      gtag('config', googleTag);
+      //gtag('config', GOOGLE_ANALYTICS_TAG_ID);
 
       document.removeEventListener('scroll', loadGoogleTag);
     }
@@ -33,7 +33,7 @@ export default function GoogleTagManager() {
       function trySendConversion() {
         if (window.gtag) {
           window.gtag('event', 'conversion', {
-            'send_to': `${GOOGLE_TAG_ID}/mgPPCPevy7cbEPLUg-pB`
+            'send_to': `${googleTag}/${googleConversionAction}`
           });
         } else if (waited < maxWaitTime) {
           waited += intervalTime;

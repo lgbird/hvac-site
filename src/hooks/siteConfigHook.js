@@ -13,6 +13,9 @@ export const useSiteConfigHook = () => {
 					serviceArea
 					phoneNumber
 					waMessage
+					googleTag
+					googleConversionAction
+					clarityTag
 				}
 			}
 		}
