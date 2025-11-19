@@ -50,7 +50,8 @@ const Layout = ({ children }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           PARAMS: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-          p: window.location.pathname
+          p: window.location.pathname,
+          ref: document.referrer
         }),
       })
     } catch (e) {
