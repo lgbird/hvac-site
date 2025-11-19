@@ -31,7 +31,8 @@ const Layout = ({ children }) => {
         body: JSON.stringify({
           "T": tag,
           "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-          p: window.location.pathname
+          p: window.location.pathname,
+          ref: document.referrer
         }),
       });
     } catch (e) {

@@ -24,7 +24,8 @@ const ContactSection = () => {
         body: JSON.stringify({
           ...formState,
           "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-          p: window.location.pathname
+          p: window.location.pathname,
+          ref: document.referrer
         })
       });
       const data = await response.json();
