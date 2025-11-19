@@ -2,26 +2,50 @@ import React, { useEffect, useState } from "react";
 import Clarity from '@microsoft/clarity';
 
 import WhatsAppBtn from '../components/whatsappBtn.js';
-import GoogleTag from '../components/GoogleTag.js';
 import { SiteContext } from "./SiteContext.js";
 import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
 const Layout = ({ children }) => {
-  const { clarityTag } = useSiteConfigHook();
+  const { clarityTag, googleTag, googleConversionAction } = useSiteConfigHook();
   const { waLink, formattedNumber } = React.useContext(SiteContext);
-  const [initialized, setInitialized] = useState(false);
-  function loadClarity() {
-    if (initialized) return;
-    setInitialized(true);
+  function loadGoogleTag() {
+    if (window.googleTagLoaded) return;
+    window.googleTagLoaded = true;
 
-    (function(c, l, a, r, i, t, y) {
-      c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", clarityTag);
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleTag}`;
+    script.async = true;
+    document.head.appendChild(script);
 
-    document.removeEventListener('scroll', loadClarity);
-    document.removeEventListener('click', loadClarity);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', googleTag);
+    //gtag('config', GOOGLE_ANALYTICS_TAG_ID);
+
+    document.removeEventListener('scroll', loadGoogleTag);
+  }
+
+  function handleClickConversion() {
+    const maxWaitTime = 5000; // max wait time in ms
+    const intervalTime = 100; // check every 100ms
+    let waited = 0;
+
+    function trySendConversion() {
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          'send_to': `${googleTag}/${googleConversionAction}`
+        });
+      } else if (waited < maxWaitTime) {
+        waited += intervalTime;
+        setTimeout(trySendConversion, intervalTime);
+      } else {
+        console.warn('gtag not loaded in time, conversion event not sent');
+      }
+    }
+
+    trySendConversion();
   }
   function handleWaClick(tag) {
     try {
@@ -61,19 +85,24 @@ const Layout = ({ children }) => {
 
     const ctaElement = document.querySelector('.cta-float');
     ctaElement.addEventListener('click', () => handleWaClick('float'));
+    ctaElement.addEventListener('click', handleClickConversion);
     const ctaElements = document.querySelectorAll('.cta-btn');
     for (const el of ctaElements) {
       el.addEventListener('click', () => handleWaClick('main'));
+      el.addEventListener('click', handleClickConversion);
     }
-    //document.addEventListener('scroll', loadClarity);
-    //document.addEventListener('click', loadClarity);
+    // Load Google Tag Manager script on scroll
+    document.addEventListener('scroll', loadGoogleTag);
+    document.addEventListener('click', loadGoogleTag);
 
     return () => {
-      //document.removeEventListener('scroll', loadClarity);
-      //document.removeEventListener('click', loadClarity);
+      document.removeEventListener('scroll', loadGoogleTag);
+      document.removeEventListener('click', loadGoogleTag);
       ctaElement.removeEventListener('click', () => handleWaClick('float'));
+      ctaElement.removeEventListener('click', handleClickConversion);
       for (const el of ctaElements) {
         el.removeEventListener('click', () => handleWaClick('main'));
+        el.removeEventListener('click', handleClickConversion);
       }
     };
   }, []);
@@ -83,7 +112,6 @@ const Layout = ({ children }) => {
     <>
       {children}
       <WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
-      <GoogleTag />
     </>
   )
 };
