@@ -65,7 +65,9 @@ const Layout = ({ children }) => {
   }
   useEffect(() => {
     try {
-      Clarity.init(clarityTag);
+      const timer = setTimeout(() => {
+        Clarity.init(clarityTag);
+      }, 100); // delay in ms
     } catch (e) {
       console.log(e);
     }
@@ -104,6 +106,7 @@ const Layout = ({ children }) => {
         el.removeEventListener('click', () => handleWaClick('main'));
         el.removeEventListener('click', handleClickConversion);
       }
+      clearTimeout(timer);
     };
   }, []);
 
