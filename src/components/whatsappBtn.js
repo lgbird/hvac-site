@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSiteConfigHook } from '../hooks/siteConfigHook.js';
 
 import WhatsappSvg from '../components/WhatsappSvg.js';
 import './whatsappBtn.css';

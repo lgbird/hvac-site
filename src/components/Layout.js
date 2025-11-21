@@ -64,13 +64,13 @@ const Layout = ({ children }) => {
     }
   }
   useEffect(() => {
-    try {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      try {
         Clarity.init(clarityTag);
-      }, 100); // delay in ms
-    } catch (e) {
-      console.log(e);
-    }
+      } catch (e) {
+        console.log(e);
+      }
+    }, 100); // delay in ms
     try {
       fetch("/api/page", {
         method: "POST",
