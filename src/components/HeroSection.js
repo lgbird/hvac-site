@@ -7,6 +7,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import CtaBtn from '../components/CtaBtn.js';
 import WashingMachineRepairSvg from "./svg/WashingMachineRepairSvg";
 import GoogleSvg from "./svg/GoogleSvg";
+import EletrodomesticosSquareSvg from "./svg/EletrodomesticosSquareSvg";
+import EletrodomesticosHorSvg from "./svg/EletrodomesticosHor";
 
 const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 	const data = useStaticQuery(graphql`
@@ -42,17 +44,13 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 					</div>
 				</div>
 				<div class="img-desktop only-desktop">
-					{campaignTag === 'GENERAL' ? <GatsbyImage
-						image={generalImage}
-						alt="Hero Background"
-						className="hero-img only-desktop"
-						loading="eager"
-						fetchpriority="high"
-					/>
-						:
-						<div class="hero-img">
+					<div class="hero-img">
+						{campaignTag === 'GENERAL' ?
+							<EletrodomesticosSquareSvg size="" />
+							:
 							<WashingMachineRepairSvg size="" />
-						</div>}
+						}
+					</div>
 				</div>
 				<div class="cta-row">
 					<div class="cta-col">
@@ -67,13 +65,9 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 				</div>
 				<p class="cta-nudge only-mobile">Técnicos certificados em quem pode confiar</p>
 			</div>
-			{campaignTag === 'GENERAL' ? <GatsbyImage
-				image={generalImage}
-				alt="Hero Background"
-				className="hero-img-hor"
-				loading="eager"
-				fetchpriority="high"
-			/> : null}
+			{campaignTag === 'GENERAL' ? <div class="hero-img-hor">
+				<EletrodomesticosHorSvg size="" />
+			</div> : null}
 			<div class="section-alt sp2">
 				<p class="sp2number">8+ Anos</p>
 				<p class="sp2text">De reparações fiáveis</p>
