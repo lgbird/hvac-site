@@ -31,7 +31,7 @@ const ServicesSection = () => {
             <p class="service-text">Estores elétricos ou manuais avariados? Reparamos cordas, motores, lâminas e problemas de enrolamento. Recuperamos a funcionalidade e comodidade para a sua casa.</p>
           </div>
         </div>
-        <CtaBtn />
+        <CtaBtn id="services" />
       </div>
     </section>
   )

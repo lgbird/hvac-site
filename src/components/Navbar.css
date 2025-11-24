@@ -10,7 +10,7 @@
 .nav-container {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 1rem 20px;
+	padding: 0.3rem 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -60,6 +60,19 @@
 	opacity: 0.7;
 }
 
+.nav-first-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.3rem 0;
+	background-color: #ececec;
+}
+
+.nav-cta-desktop {
+	display: none;
+}
+
 @media (max-width: 768px) {
 	.nav-toggle {
 		display: flex;
@@ -84,5 +97,18 @@
 	.nav-menu-active {
 		opacity: 1;
 		visibility: visible;
+	}
+}
+
+@media (min-width: 769px) {
+	.nav-first-row {
+		display: none;
+	}
+
+	.nav-cta-desktop {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
 	}
 }

@@ -21,11 +21,12 @@ const Footer = () => {
 						<div class="footer-contact">
 							<div class="contact-item">
 								<span class="contact-label">WhatsApp:</span>
-								<a href={waLink} target="_blank" class="footer-link">+351 {formattedNumber}</a>
+								<a href={waLink} data-btn="footer-wa" target="_blank" class="cta footer-link">+351 {formattedNumber}</a>
 							</div>
 							<div class="contact-item">
 								<span class="contact-label">Telefone:</span>
-								<a href={`tel:+351${phoneNumber}`} class="footer-link" target="_blank">+351 {formattedNumber}</a>
+								<a href={`tel:+351${phoneNumber}`} data-btn="footer-phone" class="cta footer-link" target="_blank">+351 {formattedNumber}</a>
+								<span class="contact-label">(Chamada para a rede móvel nacional)</span>
 							</div>
 						</div>
 					</div>

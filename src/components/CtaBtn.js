@@ -5,13 +5,21 @@ import './CtaBtn.css';
 import PhoneSvg from './PhoneSvg.js';
 import WhatsappSvg from './WhatsappSvg';
 
-const CtaBtn = () => {
-	const { waLink } = React.useContext(SiteContext);
-	return (
-		<a href={waLink} target="_blank" class="cta cta-btn cta-button">
+const CtaBtn = ({ whatsapp = false, id = "" }) => {
+	const { waLink, phoneNumber, formattedNumber } = React.useContext(SiteContext);
+	if (whatsapp) return (
+		<a href={waLink} data-btn={id} target="_blank" class="cta cta-btn cta-button cta-button-whatsapp">
 			<div class="cta-div">
 				<WhatsappSvg />
-				<span>Agende já!</span>
+				<span>WhatsApp</span>
+			</div>
+		</a>
+	)
+	return (
+		<a href={`tel:+351${phoneNumber}`} data-btn={id} target="_blank" class="cta cta-btn cta-button">
+			<div class="cta-div">
+				<PhoneSvg />
+				<span>{formattedNumber}</span>
 			</div>
 		</a>
 	)

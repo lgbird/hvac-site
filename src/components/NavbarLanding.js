@@ -1,0 +1,47 @@
+import * as React from "react"
+
+import RepairSvg from '../components/RepairSvg.js';
+import { SiteContext } from "./SiteContext.js";
+import './Navbar.css';
+import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
+import PhoneSvg from "./PhoneSvg.js";
+import WhatsappSvg from "./WhatsappSvg.js";
+
+const ContactRow = () => {
+	const { phoneNumber } = useSiteConfigHook();
+	const { waLink, formattedNumber } = React.useContext(SiteContext);
+	return (
+		<>
+			<a href={waLink} data-btn="navbarl-wa" target="_blank" class="cta icon-btn icon-btn-sm wa-icon-btn" aria-label='whatsapp'>
+				<WhatsappSvg size={24} />
+			</a>
+			<span class="speed-alert-text"><u>{formattedNumber}</u></span>
+			<a href={`tel:+351${phoneNumber}`} data-btn="navbarl-phone" target="_blank" class="cta icon-btn icon-btn-sm phone-icon-btn" aria-label='telefone'>
+				<PhoneSvg size={24} />
+			</a>
+		</>
+	)
+}
+
+const NavbarLanding = () => {
+	const { title } = useSiteConfigHook();
+
+	return (
+		<nav class="navbar">
+			<div class="nav-first-row">
+				<ContactRow />
+			</div>
+			<div class="nav-container">
+				<div class="nav-logo">
+					<RepairSvg />
+					<span>{title}</span>
+				</div>
+				<div class="nav-cta-desktop">
+					<ContactRow />
+				</div>
+			</div>
+		</nav>
+	)
+}
+
+export default NavbarLanding;

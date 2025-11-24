@@ -18,7 +18,7 @@ const WhyUs = () => {
             A nossa missão é simples: resolver o seu problema com velocidade e eficácia, para que a sua vida possa voltar à normalidade
           </p>
           <div class="only-mobile only-mobile-cta">
-            <CtaBtn />
+            <CtaBtn id="why-us" />
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ const Usps = () => {
           <p class="feature-text">Serviço Rápido</p>
         </div>
       </div>
-      <CtaBtn />
+      <CtaBtn id="usps" />
     </div>
   )
 }
@@ -90,7 +90,7 @@ const HowItWorks = () => {
             </p>
           </div>
         </div>
-        <CtaBtn />
+        <CtaBtn id="hiw" />
       </div>
     </section>
   )

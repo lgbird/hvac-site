@@ -1,5 +1,5 @@
 .cta-button {
-	background: #C62828;
+	background: var(--cta-btn-color);
 	color: #fff;
 	border: none;
 	padding: 1rem 2rem;
@@ -13,6 +13,20 @@
 	justify-self: center;
 	gap: 0.5rem;
 	transition: all 0.3s ease;
+	width: 100%;
+}
+
+.cta-button:hover {
+	background-color: var(--cta-btn-hover);
+	transform: scale(1.05);
+}
+
+.cta-button-whatsapp {
+	background: var(--wa-btn-color);
+}
+
+.cta-button-whatsapp:hover {
+	background-color: var(--wa-btn-hover);
 }
 
 .cta-div {
@@ -21,17 +35,8 @@
 	justify-content: center;
 }
 
-.cta-phone {
-	letter-spacing: 0.1rem;
-}
-
 .cta-button svg {
 	margin-right: 0.5rem;
-}
-
-.cta-button:hover {
-	background-color: #B71C1C;
-	transform: scale(1.1);
 }
 
 .cta-button.secondary {
@@ -45,8 +50,10 @@
 	color: #fff;
 }
 
-@media (max-width: 768px) {
-	.cta-phone {
-		display: none;
+/* Styles for desktop (larger screens) */
+@media (min-width: 769px) {
+	.cta-button {
+		width: inherit;
+		min-width: 300px;
 	}
 }

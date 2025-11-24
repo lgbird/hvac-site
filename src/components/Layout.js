@@ -27,42 +27,6 @@ const Layout = ({ children }) => {
     document.removeEventListener('scroll', loadGoogleTag);
   }
 
-  function handleClickConversion() {
-    const maxWaitTime = 5000; // max wait time in ms
-    const intervalTime = 100; // check every 100ms
-    let waited = 0;
-
-    function trySendConversion() {
-      if (window.gtag) {
-        window.gtag('event', 'conversion', {
-          'send_to': `${googleTag}/${googleConversionAction}`
-        });
-      } else if (waited < maxWaitTime) {
-        waited += intervalTime;
-        setTimeout(trySendConversion, intervalTime);
-      } else {
-        console.warn('gtag not loaded in time, conversion event not sent');
-      }
-    }
-
-    trySendConversion();
-  }
-  function handleWaClick(tag) {
-    try {
-      fetch('/api/whatsapp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          "T": tag,
-          "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-          p: window.location.pathname,
-          ref: document.referrer
-        }),
-      });
-    } catch (e) {
-      console.log(e)
-    }
-  }
   useEffect(() => {
     const timer = setTimeout(() => {
       try {
@@ -85,13 +49,47 @@ const Layout = ({ children }) => {
       console.log(e)
     }
 
-    const ctaElement = document.querySelector('.cta-float');
-    ctaElement.addEventListener('click', () => handleWaClick('float'));
-    ctaElement.addEventListener('click', handleClickConversion);
-    const ctaElements = document.querySelectorAll('.cta-btn');
+    function handleCtaClick(e) {
+      let tag = e.currentTarget.dataset.btn;
+
+      try {
+        fetch('/api/whatsapp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            "T": tag,
+            "PARAMS": Object.fromEntries(new URLSearchParams(window.location.search).entries()),
+            p: window.location.pathname,
+            ref: document.referrer
+          }),
+        });
+      } catch (e) {
+        console.log(e)
+      }
+
+      const maxWaitTime = 5000; // max wait time in ms
+      const intervalTime = 100; // check every 100ms
+      let waited = 0;
+
+      function trySendConversion() {
+        if (window.gtag) {
+          window.gtag('event', 'conversion', {
+            'send_to': `${googleTag}/${googleConversionAction}`
+          });
+        } else if (waited < maxWaitTime) {
+          waited += intervalTime;
+          setTimeout(trySendConversion, intervalTime);
+        } else {
+          console.warn('gtag not loaded in time, conversion event not sent');
+        }
+      }
+
+      trySendConversion();
+    }
+
+    const ctaElements = document.querySelectorAll('.cta');
     for (const el of ctaElements) {
-      el.addEventListener('click', () => handleWaClick('main'));
-      el.addEventListener('click', handleClickConversion);
+      el.addEventListener('click', handleCtaClick);
     }
     // Load Google Tag Manager script on scroll
     document.addEventListener('scroll', loadGoogleTag);
@@ -100,11 +98,8 @@ const Layout = ({ children }) => {
     return () => {
       document.removeEventListener('scroll', loadGoogleTag);
       document.removeEventListener('click', loadGoogleTag);
-      ctaElement.removeEventListener('click', () => handleWaClick('float'));
-      ctaElement.removeEventListener('click', handleClickConversion);
       for (const el of ctaElements) {
-        el.removeEventListener('click', () => handleWaClick('main'));
-        el.removeEventListener('click', handleClickConversion);
+        el.removeEventListener('click', handleCtaClick);
       }
       clearTimeout(timer);
     };

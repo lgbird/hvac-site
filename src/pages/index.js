@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { SiteContext } from "../components/SiteContext.js";
 import Layout from '../components/Layout.js';
 import SEO from '../components/Seo.js';
-import Navbar from '../components/Navbar.js';
+import NavbarLanding from '../components/NavbarLanding.js';
 import HeroSection from '../components/HeroSection.js';
 import ContactSection from '../components/ContactSection.js';
 import ReviewsSection from '../components/ReviewsSection.js';
@@ -56,7 +56,7 @@ const IndexPage = () => {
         <SiteContext.Provider value={{ waLink, formattedNumber, phoneNumber }}>
             <Layout>
                 <main>
-                    <Navbar home={true} />
+                    <NavbarLanding home={true} />
                     <HeroSection header={heroHeader} subheader={heroSubheader} />
                     <SpeedAlertSection />
                     <BelowFoldSection />

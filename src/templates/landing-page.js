@@ -6,7 +6,7 @@ import { SiteContext } from "../components/SiteContext.js";
 
 import SEO from '../components/Seo.js';
 import Layout from '../components/Layout.js';
-import Navbar from '../components/Navbar.js';
+import NavbarLanding from '../components/NavbarLanding.js';
 import HeroSection from '../components/HeroSection.js';
 import SpeedAlertSection from "../components/SpeedAlertSection.js";
 import BelowFoldSection from "../components/BelowFoldSection.js";
@@ -50,22 +50,21 @@ const ResponsiveRow = () => {
 }
 
 const PageTemplate = ({ pageContext }) => {
-  const { phoneNumber, formattedNumber } = useSiteConfigHook();
-  let waMessage = "XXX";
+  const { phoneNumber, formattedNumber, waMessage } = useSiteConfigHook();
   let waLink = `https://api.whatsapp.com/send/?phone=351${phoneNumber}&text=${encodeURIComponent(waMessage)}`;
   return (
     <SiteContext.Provider value={{ waLink, formattedNumber, phoneNumber }}>
       <Layout>
         <main>
-          <Navbar home={false} />
+          <NavbarLanding />
           <HeroSection header={pageContext.header} subheader={pageContext.subheader} campaignTag={pageContext.campaignTag} />
+          <ReviewsSection />
           <SpeedAlertSection />
           <BelowFoldSection />
           <ImageRow />
           <ServicesSection />
           <StaticImage src="../images/wm-repair.png" className="only-mobile" />
           <BrandsSection />
-          <ReviewsSection />
           <ResponsiveRow />
           <ContactSection />
           <Footer />

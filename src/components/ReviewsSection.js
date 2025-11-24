@@ -54,7 +54,7 @@ const Review = ({ text, name, location }) => {
 const ReviewsSection = ({ waLink }) => {
 	let children = reviews.map(r => Review(r));
 	return (
-		<section id="reviews" class="reviews-section">
+		<section id="reviews" class="reviews-section section">
 			<div class="section-container">
 				<h2 class="section-title">O Que Os Nossos Clientes Dizem</h2>
 				<div class="reviews-grid">

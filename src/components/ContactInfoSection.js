@@ -15,7 +15,7 @@ const ContactInfoSection = () => {
             <Svg name="whatsapp-cartoon" />
             <div class="contact-info-text-block">
               <p class="contact-info-title">WhatsApp</p>
-              <a class="nav-link" href={waLink} target="_blank">
+              <a class="cta nav-link" href={waLink} target="_blank" data-btn="info-wa">
                 {formattedNumber}
               </a>
             </div>
@@ -24,7 +24,7 @@ const ContactInfoSection = () => {
             <Svg name="phone-24" />
             <div class="contact-info-text-block">
               <p class="contact-info-title">Telefone</p>
-              <a class="nav-link" href={`tel:+351${phoneNumber}`} target="_blank">
+              <a class="cta nav-link" href={`tel:+351${phoneNumber}`} target="_blank" data-btn="info-phone">
                 {formattedNumber}
               </a>
             </div>

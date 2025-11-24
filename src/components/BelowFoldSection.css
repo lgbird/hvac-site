@@ -11,6 +11,7 @@
 
 .whyus {
 	grid-area: whyus;
+	margin-top: 2rem;
 }
 
 .image-section {
