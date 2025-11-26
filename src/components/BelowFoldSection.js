@@ -5,6 +5,7 @@ import CtaBtn from '../components/CtaBtn.js';
 import Svg from '../components/Svg.js';
 import './BelowFoldSection.css';
 
+
 const WhyUs = () => {
   return (
     <section id="quem-somos" class="section whyus">
