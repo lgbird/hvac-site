@@ -7,7 +7,7 @@ module.exports = {
     description: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Vamos até si em toda Grande Lisboa!',
     siteUrl: `https://www.reparacoeslisboa.portimaoonline.pt`,
     heroHeader: 'Reparação eletrodomésticos em Grande Lisboa',
-    heroSubheader: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Vamos até si em toda Grande Lisboa!',
+    heroSubheader: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje',
     serviceArea: 'toda Grande Lisboa',
     phoneNumber: '964609056',
     waMessage: 'Olá! Gostaria de reparar um...',
