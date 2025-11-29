@@ -69,6 +69,13 @@
 	background-color: #ececec;
 }
 
+.nav-phone-link {
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+	color: black;
+}
+
 .nav-cta-desktop {
 	display: none;
 }

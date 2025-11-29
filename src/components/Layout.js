@@ -109,9 +109,9 @@ const Layout = ({ children }) => {
 
     <>
       {children}
-      <WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
     </>
   )
 };
+//<WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
 
 export default Layout;

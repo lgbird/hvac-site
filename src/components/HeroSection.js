@@ -39,7 +39,6 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 					<p class="hero-subtitle">{subheader}</p>
 					<div class="cta-desktop">
 						<CtaBtn id="hero-phone" />
-						<CtaBtn whatsapp={true} id="hero-wa" />
 						<p class="cta-nudge">Técnicos certificados em quem pode confiar</p>
 					</div>
 				</div>
@@ -55,7 +54,6 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 				<div class="cta-row">
 					<div class="cta-col">
 						<CtaBtn id="hero-phone" />
-						<CtaBtn whatsapp={true} id="hero-wa" />
 					</div>
 
 					{campaignTag === 'GENERAL' ? null :
@@ -77,3 +75,5 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 }
 
 export default HeroSection;
+
+//<CtaBtn whatsapp={true} id="hero-wa" />

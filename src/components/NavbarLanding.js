@@ -12,13 +12,10 @@ const ContactRow = () => {
 	const { waLink, formattedNumber } = React.useContext(SiteContext);
 	return (
 		<>
-			<a href={waLink} data-btn="navbarl-wa" target="_blank" class="cta icon-btn icon-btn-sm wa-icon-btn" aria-label='whatsapp'>
-				<WhatsappSvg size={24} />
-			</a>
-			<span class="speed-alert-text"><u>{formattedNumber}</u></span>
 			<a href={`tel:+351${phoneNumber}`} data-btn="navbarl-phone" target="_blank" class="cta icon-btn icon-btn-sm phone-icon-btn" aria-label='telefone'>
 				<PhoneSvg size={24} />
 			</a>
+			<a href={`tel:+351${phoneNumber}`} data-btn="navbarl-phone" target="_blank" class="nav-phone-link"><u>{formattedNumber}</u></a>
 		</>
 	)
 }

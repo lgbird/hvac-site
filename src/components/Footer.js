@@ -6,6 +6,16 @@ import { StaticImage } from "gatsby-plugin-image";
 import { useSiteConfigHook } from "../hooks/siteConfigHook";
 import { SiteContext } from "./SiteContext";
 
+const WaItem = () => {
+	const { phoneNumber, formattedNumber, waLink } = React.useContext(SiteContext);
+	return (
+		<div class="contact-item">
+			<span class="contact-label">WhatsApp:</span>
+			<a href={waLink} data-btn="footer-wa" target="_blank" class="cta footer-link">+351 {formattedNumber}</a>
+		</div>
+	)
+}
+
 const Footer = () => {
 	const { title } = useSiteConfigHook();
 	const { phoneNumber, formattedNumber, waLink } = React.useContext(SiteContext);
@@ -19,10 +29,6 @@ const Footer = () => {
 							<span>{title}</span>
 						</div>
 						<div class="footer-contact">
-							<div class="contact-item">
-								<span class="contact-label">WhatsApp:</span>
-								<a href={waLink} data-btn="footer-wa" target="_blank" class="cta footer-link">+351 {formattedNumber}</a>
-							</div>
 							<div class="contact-item">
 								<span class="contact-label">Telefone:</span>
 								<a href={`tel:+351${phoneNumber}`} data-btn="footer-phone" class="cta footer-link" target="_blank">+351 {formattedNumber}</a>
