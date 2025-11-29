@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 const EletrodomesticosSquareSvg = ({ size = 24 }) => {
-  let pxSize = `${size}px`;
+  let pxSize = size === "" ? undefined : `${size}px`;
   return (
     <svg
       width={pxSize}

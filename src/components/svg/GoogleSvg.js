@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 const GoogleSvg = ({ size = 24 }) => {
-  let pxSize = `${size}px`;
+  let pxSize = size === "" ? undefined : `${size}px`;
   return (
     <svg version="1.1" viewBox="0 0 268.1522 273.8827" overflow="hidden" xmlns="http://www.w3.org/2000/svg" width={pxSize} height={pxSize}>
       <defs>
