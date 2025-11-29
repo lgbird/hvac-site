@@ -19,7 +19,8 @@ const CtaBtn = ({ whatsapp = false, id = "" }) => {
 		<a href={`tel:+351${phoneNumber}`} data-btn={id} target="_blank" class="cta cta-btn cta-button">
 			<div class="cta-div">
 				<PhoneSvg />
-				<span>{formattedNumber}</span>
+				<span class="only-desktop">{formattedNumber}</span>
+				<span class="only-mobile">Ligue já!</span>
 			</div>
 		</a>
 	)
