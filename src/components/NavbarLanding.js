@@ -15,7 +15,7 @@ const ContactRow = () => {
 			<a href={`tel:+351${phoneNumber}`} data-btn="navbarl-phone" target="_blank" class="cta icon-btn icon-btn-sm phone-icon-btn" aria-label='telefone'>
 				<PhoneSvg size={24} />
 			</a>
-			<a href={`tel:+351${phoneNumber}`} data-btn="navbarl-phone" target="_blank" class="nav-phone-link"><u>{formattedNumber}</u></a>
+			<a href={`tel:+351${phoneNumber}`} data-btn="navbarl-phone-text" target="_blank" class="cta nav-phone-link"><u>{formattedNumber}</u></a>
 		</>
 	)
 }

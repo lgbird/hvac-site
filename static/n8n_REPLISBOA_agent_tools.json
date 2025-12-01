@@ -1,0 +1,1681 @@
+{
+  "name": "REPLISBOA agent tools",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-voice/book-appointment",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        -180
+      ],
+      "id": "7d451aa4-3698-48e1-921c-8871f132aeda",
+      "name": "Book Appointment",
+      "webhookId": "b2d48bcb-b29c-4ce3-93c7-b91487043415"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-voice/inquiry",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        80
+      ],
+      "id": "a5ba893e-f42b-4f2b-b497-3ba95f00c026",
+      "name": "Inquiry",
+      "webhookId": "de2ffa38-1641-4998-9e97-f946a56891ad"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-voice/pre",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        1100
+      ],
+      "id": "997d2b6b-ab38-4efb-97d5-6458f78e593d",
+      "name": "PRE-call",
+      "webhookId": "053051c1-ff80-4f43-b910-7ffc8a89500f"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-voice/post",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        1460
+      ],
+      "id": "913790d1-7e06-4b6d-a375-051896e9ef1f",
+      "name": "POST-call",
+      "webhookId": "84e46b00-57f6-451c-9a1d-71fbe9b8457f"
+    },
+    {
+      "parameters": {
+        "content": "store transcript, call recording, post-analysis",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        1440
+      ],
+      "id": "3472acf2-8794-4d60-8ee7-475ab171499b",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "fetch previous call summaries, appointments, inquiries\n\n**by:** caller phone",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        1080
+      ],
+      "id": "b46f9739-154c-4384-ab96-f7ceaca79079",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "for questons that can't be answered by agent\n\"we'll get back to you\"\n\n- stores inquiry\n- send telegram msg",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        60
+      ],
+      "id": "8edb7722-8183-4b24-94e9-3740a5354634",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "- stores appointment\n- send telegram msg",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        -200
+      ],
+      "id": "8bda44be-9872-4273-9a8a-42e4f2a19c3c",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Database\n\n- appointments\n-- phone\n-- date & time\n-- name\n-- address\n- inquiries\n-- phone\n-- inquiry\n-- name\n- call records:\n-- phone\n-- transcript\n-- summary\n-- post analysis results (booked?)\n-- cost (elevenlabs + twilio + zadarma + meo)\n-- start\n-- duration\n-- recording\n\n\n## +\n- created_at\n",
+        "height": 580,
+        "width": 340,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1000,
+        -200
+      ],
+      "id": "b2a03d8a-0cb5-4834-abc4-d4ce66987239",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "chatId": "7410676238",
+        "text": "=NEW APPOINTMENT\n  {{ $json.name }} - {{ $json.phone }}\n  {{ $json.address }}\n  {{ $json[\"date & time\"] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        -180
+      ],
+      "id": "254ea08f-5b02-4ca8-9f96-43d71a456115",
+      "name": "Telegram",
+      "webhookId": "360698e8-cbb1-4035-95ae-409066c6103a",
+      "credentials": {
+        "telegramApi": {
+          "id": "rAnJ22PBoIgNNd5t",
+          "name": "REPLISBOA - Appointment"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "7410676238",
+        "text": "=NEW INQUIRY\n  {{ $json.name }} - {{ $json.phone }}\n  {{ $json.inquiry }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        80
+      ],
+      "id": "fcaa8480-b454-4316-9bc8-6d5a95ae17e2",
+      "name": "Telegram1",
+      "webhookId": "360698e8-cbb1-4035-95ae-409066c6103a",
+      "credentials": {
+        "telegramApi": {
+          "id": "xB8AaTDAydVQqhaI",
+          "name": "REPLISBOA - Inquiry"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc",
+          "mode": "list",
+          "cachedResultName": "REPLISBOA - RECEPTIONIST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "appointments",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "phone": "={{ $json.phone }}",
+            "date & time": "={{ $json.apt_datetime }}",
+            "name": "={{ $json.name }}",
+            "address": "={{ $json.address }}",
+            "created_at": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "date & time",
+              "displayName": "date & time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "address",
+              "displayName": "address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        160,
+        -180
+      ],
+      "id": "ab3ad772-05f6-4670-b0b1-1c0db31b9f1e",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "437c3b35-37a7-442d-a09b-7025f07d5b34",
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "25355b6b-cf88-429a-b78f-9ab65d603bdd",
+              "name": "apt_datetime",
+              "value": "={{ $json.body.datetime }}",
+              "type": "string"
+            },
+            {
+              "id": "f1632e96-51d2-4293-bceb-a9fe4e59b65a",
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "08fe5083-cb35-4e84-ad3e-ae846fa765af",
+              "name": "address",
+              "value": "={{ $json.body.address }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -60,
+        -180
+      ],
+      "id": "b34cc40a-e7b7-43ae-ace3-72f4370e75a6",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "437c3b35-37a7-442d-a09b-7025f07d5b34",
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "25355b6b-cf88-429a-b78f-9ab65d603bdd",
+              "name": "inquiry",
+              "value": "={{ $json.body.inquiry }}",
+              "type": "string"
+            },
+            {
+              "id": "f1632e96-51d2-4293-bceb-a9fe4e59b65a",
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -60,
+        80
+      ],
+      "id": "3ba82d0c-942e-4b31-b94d-fdf074bacb8c",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc",
+          "mode": "list",
+          "cachedResultName": "REPLISBOA - RECEPTIONIST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1699411097,
+          "mode": "list",
+          "cachedResultName": "inquiries",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit#gid=1699411097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "phone": "={{ $json.phone }}",
+            "inquiry": "={{ $json.inquiry }}",
+            "name": "={{ $json.name }}",
+            "created_at": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "inquiry",
+              "displayName": "inquiry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        160,
+        80
+      ],
+      "id": "5f6021be-0929-45a9-80ad-86c3aeaadd5e",
+      "name": "Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7bb24fb6-21dc-46a1-9e06-e7cbdf139999",
+              "name": "caller_id",
+              "value": "={{ $json.body.data.metadata.phone_call.external_number }}",
+              "type": "string"
+            },
+            {
+              "id": "0efdfc91-e6e7-4b35-a986-4c26497905c7",
+              "name": "call_sid",
+              "value": "={{ $json.body.data.metadata.phone_call.call_sid }}",
+              "type": "string"
+            },
+            {
+              "id": "fc40a0de-90f9-4a61-bbcc-5d20b7d9a9f3",
+              "name": "transcript_summary",
+              "value": "={{ $json.body.data.analysis.transcript_summary }}",
+              "type": "string"
+            },
+            {
+              "id": "ae2cb849-2db6-41d6-bc7e-f9da99a263d6",
+              "name": "start_time_unix_secs",
+              "value": "={{ $json.body.data.metadata.start_time_unix_secs }}",
+              "type": "number"
+            },
+            {
+              "id": "477f4083-98aa-4650-9ec6-bb2372987024",
+              "name": "accepted_time_unix_secs",
+              "value": "={{ $json.body.data.metadata.accepted_time_unix_secs }}",
+              "type": "number"
+            },
+            {
+              "id": "7d168b10-df43-453d-b542-c5718749e1e0",
+              "name": "call_duration_secs",
+              "value": "={{ $json.body.data.metadata.call_duration_secs }}",
+              "type": "number"
+            },
+            {
+              "id": "14bbcf4a-2542-4b13-abfd-23eeacdd3d95",
+              "name": "cost",
+              "value": "={{ $json.body.data.metadata.cost }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -60,
+        1460
+      ],
+      "id": "6aacc118-bce8-4d0e-9642-6b17121a8302",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc",
+          "mode": "list",
+          "cachedResultName": "REPLISBOA - RECEPTIONIST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1950194476,
+          "mode": "list",
+          "cachedResultName": "call records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit#gid=1950194476"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "phone": "={{ $json.caller_id }}",
+            "call_id": "={{ $json.call_sid }}",
+            "summary": "={{ $json.transcript_summary }}",
+            "start": "={{ Date($json.start_time_unix_secs).toDateTime().toISO() }}",
+            "duration": "={{ $json.call_duration_secs }}",
+            "cost": "={{ $json.cost }}",
+            "created_at": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "call_id",
+              "displayName": "call_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "results",
+              "displayName": "results",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "cost",
+              "displayName": "cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "start",
+              "displayName": "start",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "duration",
+              "displayName": "duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        160,
+        1460
+      ],
+      "id": "c8ffd347-ac4e-45a1-a47d-34fda1d46689",
+      "name": "Google Sheets2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc",
+          "mode": "list",
+          "cachedResultName": "REPLISBOA - RECEPTIONIST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1950194476,
+          "mode": "list",
+          "cachedResultName": "call records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit#gid=1950194476"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "phone",
+              "lookupValue": "={{ $json.caller_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        600,
+        800
+      ],
+      "id": "03af75c8-e8cf-49e7-9772-f9be24327141",
+      "name": "Get Calls",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc",
+          "mode": "list",
+          "cachedResultName": "REPLISBOA - RECEPTIONIST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "appointments",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "phone",
+              "lookupValue": "={{ $json.caller_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        600,
+        1000
+      ],
+      "id": "612611ba-e707-4edf-ab96-50b36d42b3fd",
+      "name": "Get Appointments",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc",
+          "mode": "list",
+          "cachedResultName": "REPLISBOA - RECEPTIONIST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1699411097,
+          "mode": "list",
+          "cachedResultName": "inquiries",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MToz6soCxq7hDLX-AxrLW9Ayhbccl9U2KwTwxfBLbAc/edit#gid=1699411097"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "phone",
+              "lookupValue": "={{ $json.caller_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        600,
+        1200
+      ],
+      "id": "d8d05398-fa31-4b7f-a221-22c95311b9f6",
+      "name": "Get Inquiries",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Appointment successfully booked!",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        600,
+        -180
+      ],
+      "id": "35f0dd38-fee5-41fd-ae14-de37611baf3f",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Successfully stored inquiry!",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        600,
+        80
+      ],
+      "id": "32d3f707-e8bb-432a-b8ce-eef455b9657c",
+      "name": "Respond to Webhook1"
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        380,
+        1460
+      ],
+      "id": "48354abf-5501-4772-a3c4-2dd7c1e7c5c4",
+      "name": "Respond to Webhook3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a378e63f-1675-4fef-bc72-7904f0c39090",
+              "name": "caller_id",
+              "value": "={{ $json.body.caller_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -60,
+        1100
+      ],
+      "id": "924a42c9-c982-4f79-88b0-7b60c03ffac8",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"type\": \"conversation_initiation_client_data\",\n  \"conversation_config_override\": {},\n  \"custom_llm_extra_body\": {},\n  \"dynamic_variables\": {}\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        380,
+        1200
+      ],
+      "id": "baf9d0dd-5e7f-4bf9-81c1-3d4b388d71b6",
+      "name": "Respond to Webhook4"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-voice/service-area",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        440
+      ],
+      "id": "3a98a919-8e68-42c8-9b5a-4035f15219fc",
+      "name": "ServiceArea",
+      "webhookId": "4fadc967-a5cd-4f9b-9e4e-325406a859e4"
+    },
+    {
+      "parameters": {
+        "content": "checks if a location is in our service area",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        420
+      ],
+      "id": "d5bc8594-3b41-4681-8e3b-99b27af921e7",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2c6ebaba-c4ba-4234-b3f6-9482a6cd91fe",
+              "name": "freguesia",
+              "value": "={{ $json.body.freguesia }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -60,
+        440
+      ],
+      "id": "a21a3bd7-8cd8-49fd-80e2-7d8c5d23c667",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=A customer is asking whether we serve **{{ $json.freguesia }}**. return true if this locality in the list of localities we serve, or if it is very similar to one on the names on the list, otherwise, return false",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You work for a home service company. Here is a list of freguesias and localities that we serve\nService area:\nAbrunheira, Alcabideche, Alenquer, Alges, Algueirao–Mem Martins, Alverca do Ribatejo, Amadora, Arruda dos Vinhos, Azambuja, Belas, Cadaval, Camarate, Carcavelos, Carnaxide, Carregado, Cascais, Colares, Ericeira, Estoril, Linda-a-Velha, Lisboa, Lisboa, Loures, Lourinhã, Mafra, Mem Martins, Odivelas, Oeiras, Paco de Arcos, Parede, Pontinha, Porto Salvo, Povoa de Santa Iria, Queluz, Ramada, Rio de Mouro, Sacavem, Santo Antonio dos Cavaleiros, Sao Domingos de Rana, Sobral de Monte Agraço, Sintra, Torres Vedras, Vila Franca de Xira\nA dos Cunhados e Maceira, Abrigada e Cabanas de Torres, Agualva e Mira-Sintra, Águas Livres, Ajuda, Alcabideche, Alcântara, Alcoentre, Aldeia Galega da Merceana e Aldeia Gavinha, Alenquer (Santo Estêvão e Triana), Alfragide, Algés, Linda-a-Velha e Cruz Quebrada-Dafundo, Alguber, Algueirão-Mem Martins, Alhandra, São João dos Montes e Calhandriz, Almargem do Bispo, Pêro Pinheiro e Montelavar, Alvalade, Alverca do Ribatejo e Sobralinho, Areeiro, Arranhó, Arroios, Arruda dos Vinhos, Aveiras de Baixo, Aveiras de Cima, Avenidas Novas, Azambuja, Azueira e Sobral da Abelheira, Barcarena, Beato, Belém, Benfica, Bucelas, Cacém e São Marcos, Cadaval e Pêro Moniz, Camarate, Unhos e Apelação, Campelos e Outeiro da Cabeça, Campo de Ourique, Campolide, Carcavelos e Parede, Cardosas, Carnaxide e Queijas, Carnide, Carnota, Carregado e Cadafais, Carvoeira, Carvoeira e Carmões, Casal de Cambra, Cascais e Estoril, Castanheira do Ribatejo e Cachoeiras, Colares, Dois Portos e Runa, Encarnação, Encosta do Sol, Enxara do Bispo, Gradil e Vila Franca do Rosário, Ericeira, Estrela, Falagueira-Venda Nova, Fanhões, Freiria, Igreja Nova e Cheleiros, Lamas e Cercal, Loures, Lourinhã e Atalaia, Lousa, Lumiar, Mafra, Malveira e São Miguel de Alcainça, Manique do Intendente, Vila Nova de São Pedro e Maçussa, Marvila, Massamá e Monte Abraão, Maxial e Monte Redondo, Meca, Milharado, Milharado, Mina de Água, Miragaia e Marteleira, Misericórdia, Moita dos Ferreiros, Moscavide e Portela, Odivelas, Oeiras e São Julião da Barra, Paço de Arcos e Caxias, Olhalvo, Olivais, Ota, Painho e Figueiros, Parque das Nações, Penha de França, Peral, Ponte do Rol, Pontinha e Famões, Porto Salvo, Póvoa de Santa Iria e Forte da Casa, Póvoa de Santo Adrião e Olival de Basto, Queluz e Belas, Ramada e Caneças, Ramalhal, Reguengo Grande, Ribafria e Pereiro de Palhacana, Ribamar, Rio de Mouro, S. Tiago dos Velhos, Sacavém e Prior Velho, Santa Bárbara, Santa Clara, Santa Iria de Azoia, São João da Talha e Bobadela, Santa Maria Maior, Santa Maria, São Pedro e Matacães, Santo Antão e São Julião do Tojal, Santo António, Santo António dos Cavaleiros e Frielas, Santo Isidoro, Santo Quintino, São Bartolomeu dos Galegos e Moledo, São Domingos de Benfica, São Domingos de Rana, São João das Lampas e Terrugem, São Pedro da Cadeira, São Vicente, Sapataria, Silveira, Sintra (Santa Maria e São Miguel, São Martinho e São Pedro de Penaferrim), Sobral de Monte Agraço, Turcifal, Vale do Paraíso, Venda do Pinheiro e Santo Estêvão das Galés, Venteira, Ventosa, Ventosa, Vermelha, Vialonga, Vila Franca de Xira, Vila Nova da Rainha, Vila Verde dos Francos, Vilar, Vimeiro"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        160,
+        440
+      ],
+      "id": "ae61b6bd-956f-4a87-aaa9-6f0a7d69cd52",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        536,
+        440
+      ],
+      "id": "5726f96b-c347-4902-90ab-a6ce56bd4900",
+      "name": "Respond to Webhook5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        188,
+        660
+      ],
+      "id": "e8b3db19-1180-4685-b6df-cf076035f08c",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "id80kQPYpEZUxzIG",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"isInServiceArea\": {\n\t\t\t\"type\": \"boolean\",\n            \"required\": true\n\t\t}\n\t}\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        308,
+        660
+      ],
+      "id": "6efdbe29-a894-4b6a-ad7b-9827556242ec",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1eb89d1d-fbe9-4eeb-a609-485f78528b36",
+              "leftValue": "={{ $json.caller_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c56ae4cb-c13f-4228-ab73-39411a565c68",
+              "leftValue": "={{ $json.caller_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        1100
+      ],
+      "id": "b9acbab0-3f46-4122-92e3-10abd9411ae1",
+      "name": "Has number?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        380,
+        1000
+      ],
+      "id": "24891ce5-b50e-4d69-999c-581f1bba08e6",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        820,
+        900
+      ],
+      "id": "023d4a7f-aa25-49db-bb15-f851310d8b34",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        900
+      ],
+      "id": "2d1006bf-9836-4a9a-94c0-7753c76dd10d",
+      "name": "Sort by created_at"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1260,
+        900
+      ],
+      "id": "b7c85e92-5be0-4f51-b87f-5cff25985eaf",
+      "name": "Respond to Webhook2"
+    }
+  ],
+  "pinData": {
+    "PRE-call": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "user-agent": "ElevenLabs/1.0",
+            "content-length": "164",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "34.59.11.47",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "caller_id": "+351967087547",
+            "agent_id": "agent_3801kag83wpxfe3vb90rzn8b0251",
+            "called_number": "+420910926468",
+            "call_sid": "CA3f5d4327992b4eca5677af8038b787c2"
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/replisboa-voice/pre",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "POST-call": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "user-agent": "ElevenLabs/1.0",
+            "content-length": "4391",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "elevenlabs-signature": "t=1764087505,v0=7e773e5faadfd69e5a0f3ad92a662d32fb00fa210b864ccf00dbf84a206463e9",
+            "x-forwarded-for": "34.59.11.47",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "post_call_transcription",
+            "event_timestamp": 1764087505,
+            "data": {
+              "agent_id": "agent_3801kag83wpxfe3vb90rzn8b0251",
+              "conversation_id": "conv_9401kaxwxybdfy5r5zhsj2m1w044",
+              "status": "done",
+              "user_id": null,
+              "branch_id": null,
+              "transcript": [
+                {
+                  "role": "agent",
+                  "agent_metadata": {
+                    "agent_id": "agent_3801kag83wpxfe3vb90rzn8b0251",
+                    "branch_id": null,
+                    "workflow_node_id": null
+                  },
+                  "message": "Reparações Lisboa, fala João. Como posso ajudar?",
+                  "multivoice_message": null,
+                  "tool_calls": [],
+                  "tool_results": [],
+                  "feedback": null,
+                  "llm_override": null,
+                  "time_in_call_secs": 0,
+                  "conversation_turn_metrics": {
+                    "metrics": {
+                      "convai_tts_service_ttfb": {
+                        "elapsed_time": 0.1936724110000796
+                      }
+                    }
+                  },
+                  "rag_retrieval_info": null,
+                  "llm_usage": null,
+                  "interrupted": false,
+                  "original_message": null,
+                  "source_medium": null
+                }
+              ],
+              "metadata": {
+                "start_time_unix_secs": 1764087495,
+                "accepted_time_unix_secs": 1764087496,
+                "call_duration_secs": 7,
+                "cost": 72,
+                "deletion_settings": {
+                  "deletion_time_unix_secs": null,
+                  "deleted_logs_at_time_unix_secs": null,
+                  "deleted_audio_at_time_unix_secs": null,
+                  "deleted_transcript_at_time_unix_secs": null,
+                  "delete_transcript_and_pii": false,
+                  "delete_audio": false
+                },
+                "feedback": {
+                  "type": null,
+                  "overall_score": null,
+                  "likes": 0,
+                  "dislikes": 0,
+                  "rating": null,
+                  "comment": null
+                },
+                "authorization_method": "signed_url",
+                "charging": {
+                  "dev_discount": false,
+                  "is_burst": false,
+                  "tier": "starter",
+                  "llm_usage": {
+                    "irreversible_generation": {
+                      "model_usage": {}
+                    },
+                    "initiated_generation": {
+                      "model_usage": {}
+                    }
+                  },
+                  "llm_price": 0,
+                  "llm_charge": 0,
+                  "call_charge": 72,
+                  "free_minutes_consumed": 0,
+                  "free_llm_dollars_consumed": 0
+                },
+                "phone_call": {
+                  "direction": "inbound",
+                  "phone_number_id": "phnum_9201kav0wz9cemx9abbgq6m716dj",
+                  "agent_number": "+420910926468",
+                  "external_number": "+351967087547",
+                  "type": "twilio",
+                  "stream_sid": "MZdc1f86996de11168560c4d54cbead07f",
+                  "call_sid": "CA6013cd01c2bc7bc8dfad23ae96a2809b"
+                },
+                "batch_call": null,
+                "termination_reason": "Call ended by remote party",
+                "error": null,
+                "warnings": [],
+                "main_language": "pt",
+                "rag_usage": null,
+                "text_only": false,
+                "features_usage": {
+                  "language_detection": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "transfer_to_agent": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "transfer_to_number": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "multivoice": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "dtmf_tones": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "external_mcp_servers": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "pii_zrm_workspace": false,
+                  "pii_zrm_agent": false,
+                  "tool_dynamic_variable_updates": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "is_livekit": false,
+                  "voicemail_detection": {
+                    "enabled": false,
+                    "used": false
+                  },
+                  "workflow": {
+                    "enabled": false,
+                    "tool_node": {
+                      "enabled": false,
+                      "used": false
+                    },
+                    "standalone_agent_node": {
+                      "enabled": false,
+                      "used": false
+                    },
+                    "phone_number_node": {
+                      "enabled": false,
+                      "used": false
+                    },
+                    "end_node": {
+                      "enabled": false,
+                      "used": false
+                    }
+                  },
+                  "agent_testing": {
+                    "enabled": false,
+                    "tests_ran_after_last_modification": false,
+                    "tests_ran_in_last_7_days": false
+                  }
+                },
+                "eleven_assistant": {
+                  "is_eleven_assistant": false
+                },
+                "initiator_id": null,
+                "conversation_initiation_source": "twilio",
+                "conversation_initiation_source_version": null,
+                "timezone": "Europe/Lisbon",
+                "initiation_trigger": {
+                  "trigger_type": "default"
+                },
+                "async_metadata": null,
+                "whatsapp": null,
+                "agent_created_from": "ui",
+                "agent_last_updated_from": "ui"
+              },
+              "analysis": {
+                "evaluation_criteria_results": {},
+                "data_collection_results": {},
+                "call_successful": "success",
+                "transcript_summary": "João from Reparações Lisboa answers the phone and asks how he can help.\n",
+                "call_summary_title": "Reparações Lisboa assistance"
+              },
+              "conversation_initiation_client_data": {
+                "conversation_config_override": {
+                  "turn": null,
+                  "tts": null,
+                  "conversation": null,
+                  "agent": null
+                },
+                "custom_llm_extra_body": {},
+                "user_id": null,
+                "source_info": {
+                  "source": null,
+                  "version": null
+                },
+                "dynamic_variables": {
+                  "system__agent_id": "agent_3801kag83wpxfe3vb90rzn8b0251",
+                  "system__current_agent_id": "agent_3801kag83wpxfe3vb90rzn8b0251",
+                  "system__conversation_id": "conv_9401kaxwxybdfy5r5zhsj2m1w044",
+                  "system__caller_id": "+351967087547",
+                  "system__called_number": "+420910926468",
+                  "system__call_duration_secs": 7,
+                  "system__time_utc": "2025-11-25T16:18:22.961288+00:00",
+                  "system__time": "Tuesday, 16:18 25 November 2025",
+                  "system__timezone": "Europe/Lisbon",
+                  "system__call_sid": "CA6013cd01c2bc7bc8dfad23ae96a2809b"
+                }
+              }
+            }
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/replisboa-voice/post",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Book Appointment": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "user-agent": "ElevenLabs/1.0",
+            "content-length": "97",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "34.59.11.47",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "datetime": "2025-11-25 19:00",
+            "address": "Rua de Jacob, 32",
+            "phone": "+351123456789",
+            "name": "Lorenzo"
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/replisboa-voice/book-appointment",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Inquiry": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "user-agent": "ElevenLabs/1.0",
+            "content-length": "97",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "34.59.11.47",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "inquiry": "text etexte",
+            "phone": "+351123456789",
+            "name": "Lorenzo"
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/replisboa-voice/book-appointment",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Book Appointment": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inquiry": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST-call": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PRE-call": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Calls": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Appointments": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Inquiries": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Has number?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ServiceArea": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has number?": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Get Calls",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Appointments",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Inquiries",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Sort by created_at",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by created_at": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "911fe87d-afe1-4fcd-835f-ff59bf0f292e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ee96698288d0393112fadcb3ab4d1fe25e64c0c6e712a246d13a3e7e4b8cc7e9"
+  },
+  "id": "ZuCPyFdxlOJRwNec",
+  "tags": []
+}
