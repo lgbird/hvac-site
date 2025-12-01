@@ -110,8 +110,7 @@ body {
 	align-items: flex-start;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	max-width: 1000px;
-	justify-self: center;
+	max-width: 400px;
 }
 
 .service-area-img {

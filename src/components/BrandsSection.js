@@ -6,7 +6,7 @@ import './BrandsSection.css';
 const BrandsSection = () => {
 
   return (
-    <section class="section btm-padding-section">
+    <section class="brands-section">
       <div class="section-container">
         <h2 class="section-title">Trabalhamos com todas as principais marcas</h2>
         <div className="brand-grid">

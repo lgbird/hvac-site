@@ -22,7 +22,7 @@ const WaInfo = () => {
 const ContactInfoSection = () => {
   const { waLink, phoneNumber, formattedNumber } = React.useContext(SiteContext);
   return (
-    <section id="contact-info" class="section">
+    <section id="contact-info" class="contact-info-section">
       < div class="section-container" >
         <h2 class="section-title">Informações de Contacto</h2>
         <div>

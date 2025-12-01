@@ -1,0 +1,66 @@
+.floating-btns {
+	position: fixed;
+	bottom: 4rem;
+	right: 2rem;
+	gap: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.floating-btn {
+	color: white;
+	border-radius: 50%;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	transition: all 0.4s ease;
+	overflow: hidden;
+	padding: 15px;
+}
+
+.floating-btn:hover {
+	transform: scale(1.1);
+	box-shadow: 4px 4px 6px #999;
+}
+
+.phone-float {
+	background-color: var(--phone-btn-color);
+}
+
+.whatsapp-float {
+	background-color: var(--wa-btn-color);
+}
+
+.whatsapp-float:hover {
+	background-color: var(--wa-btn-hover);
+}
+
+.whatsapp-float:active {
+	transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+	.floating-btn {
+		width: 70px;
+		height: 70px;
+		justify-content: center;
+		right: 2rem;
+		bottom: calc(var(--bottom-cta-height, 0) + 1rem);
+	}
+}
+
+
+@media (min-width: 769px) {
+	.floating-btn {
+		width: 90px;
+		height: 90px;
+	}
+
+	.floating-btn:hover {
+		background-color: #128C7E;
+		box-shadow: 4px 4px 6px #666;
+	}
+}

@@ -37,12 +37,10 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 					</div>
 					<h1 class="hero-title">{header}</h1>
 					<p class="hero-subtitle">{subheader}</p>
-					<div class="cta-desktop">
-						<CtaBtn id="hero-phone" />
-						<p class="cta-nudge">Técnicos certificados em quem pode confiar</p>
-					</div>
+					<CtaBtn id="hero-phone" />
+					<p class="cta-nudge">Técnicos certificados em quem pode confiar</p>
 				</div>
-				<div class="img-desktop only-desktop">
+				<div class="img-desktop">
 					<div class="hero-img">
 						{campaignTag === 'GENERAL' ?
 							<EletrodomesticosSquareSvg size="" />
@@ -51,17 +49,6 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 						}
 					</div>
 				</div>
-				<div class="cta-row">
-					<div class="cta-col">
-						<CtaBtn id="hero-phone" />
-					</div>
-
-					{campaignTag === 'GENERAL' ? null :
-						<div class="hero-img">
-							<WashingMachineRepairSvg size="" />
-						</div>}
-				</div>
-				<p class="cta-nudge only-mobile">Técnicos certificados em quem pode confiar</p>
 			</div>
 			{campaignTag === 'GENERAL' ? <div class="hero-img-hor">
 				<EletrodomesticosHorSvg size="" />

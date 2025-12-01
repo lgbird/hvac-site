@@ -1,9 +1,13 @@
+.services-section {
+	padding: 2rem 0;
+}
+
 .services {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto auto;
 	gap: 2rem;
-	margin-bottom: 3rem;
+	margin-bottom: 2.5rem;
 }
 
 .service {

@@ -9,7 +9,7 @@ module.exports = {
     heroHeader: 'Reparação eletrodomésticos em Grande Lisboa',
     heroSubheader: 'Reparação de todos tipos de eletrodomésticos, grandes e pequenos. Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje',
     serviceArea: 'toda Grande Lisboa',
-    phoneNumber: '964609056',
+    phoneNumber: '923233332',
     waMessage: 'Olá! Gostaria de reparar um...',
     googleTag: 'AW-17670662770',
     googleConversionAction: 'mgPPCPevy7cbEPLUg-pB',

@@ -3,9 +3,12 @@
 	justify-items: center;
 }
 
+.contact-info-section {
+	margin: 2rem 0;
+}
+
 .contact-info {
 	display: flex;
-	margin-bottom: 1rem;
 }
 
 .contact-info-text-block {
@@ -16,4 +19,10 @@
 .contact-info-title {
 	font-size: 1.25rem;
 	font-weight: 600;
+}
+
+@media (min-width: 768px) {
+	.contact-info-section {
+		margin: 0;
+	}
 }

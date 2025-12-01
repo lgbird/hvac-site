@@ -27,8 +27,7 @@
 }
 
 .hero-content {
-	padding: 0 20px;
-	padding-top: 1rem;
+	padding: 1rem;
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
@@ -63,7 +62,8 @@
 }
 
 .img-desktop {
-	align-content: center;
+	align-content: end;
+	justify-items: center;
 }
 
 .google-reviews-badge {
@@ -86,7 +86,6 @@
 }
 
 .sp2 {
-	margin-top: 1rem;
 	padding: 1rem 0;
 	align-content: center;
 	width: 100%

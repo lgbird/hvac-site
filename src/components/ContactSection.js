@@ -41,7 +41,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" class="section btm-padding-section">
+    <section id="contact" class="section">
       <div class="section-container contact-section">
         <div class="contact-form-container">
           <h2 class="section-title">Contacte-nos</h2>

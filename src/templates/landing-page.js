@@ -16,6 +16,7 @@ import ReviewsSection from '../components/ReviewsSection.js';
 import ContactSection from '../components/ContactSection.js';
 import Footer from '../components/Footer.js';
 import ContactInfoSection from "../components/ContactInfoSection.js";
+import HowItWorks from "../components/HowItWorksSection.js";
 
 
 const ImageRow = () => {
@@ -59,11 +60,12 @@ const PageTemplate = ({ pageContext }) => {
           <NavbarLanding />
           <HeroSection header={pageContext.header} subheader={pageContext.subheader} campaignTag={pageContext.campaignTag} />
           <ReviewsSection />
-          <SpeedAlertSection />
           <BelowFoldSection />
           <ImageRow />
-          <ServicesSection />
+          <HowItWorks />
           <StaticImage src="../images/wm-repair.png" className="only-mobile" />
+          <ServicesSection />
+          <SpeedAlertSection />
           <BrandsSection />
           <ResponsiveRow />
           <ContactSection />

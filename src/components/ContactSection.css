@@ -1,5 +1,6 @@
 .contact-form-container {}
 
+
 .form-group {
 	margin-bottom: 1.5rem;
 }
@@ -62,5 +63,11 @@
 	.contact-form {
 		margin: 0 auto;
 		max-width: 90%;
+	}
+}
+
+@media (min-width: 768px) {
+	.contact-section {
+		margin-top: 2rem;
 	}
 }

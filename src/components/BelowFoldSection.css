@@ -1,17 +1,15 @@
 .below-fold-section {
 	display: grid;
 	grid-template-areas:
-		"whyus"
 		"image"
-		"hiw"
+		"whyus"
 		"usps";
-	gap: 1rem;
 }
 
 
 .whyus {
 	grid-area: whyus;
-	margin-top: 2rem;
+	margin: 2rem 0;
 }
 
 .image-section {
@@ -21,10 +19,12 @@
 
 .hiw {
 	grid-area: hiw;
+	margin: 2rem 0;
 }
 
 .usps {
 	grid-area: usps;
+	margin-bottom: 2rem;
 }
 
 .technician-image {
@@ -43,7 +43,6 @@
 		grid-template-areas:
 			"whyus image"
 			"usps usps"
-			"hiw hiw";
 	}
 
 }
@@ -103,7 +102,7 @@
 .step-3::after {
 	content: '';
 	position: absolute;
-	bottom: -35px;
+	bottom: -20px;
 	/* place at the bottom */
 	left: 50%;
 	/* start at the horizontal center */
@@ -111,11 +110,11 @@
 	/* center horizontally */
 	width: 0;
 	height: 0;
-	border-left: 35px solid transparent;
+	border-left: 120px solid transparent;
 	/* left half of arrow */
-	border-right: 35px solid transparent;
+	border-right: 120px solid transparent;
 	/* right half of arrow */
-	border-top: 35px solid #333;
+	border-top: 20px solid #ccc;
 	/* arrow color and height */
 }
 
@@ -160,13 +159,14 @@
 	.step-3::after {
 		content: '';
 		position: absolute;
-		bottom: 50%;
-		left: calc(100% + 35px);
+		bottom: 100px;
+		left: calc(100% + 10px);
 		transform: translateX(-50%);
 		width: 0;
 		height: 0;
-		border-top: 35px solid transparent;
-		border-bottom: 35px solid transparent;
-		border-left: 35px solid #333;
+		border-top: 120px solid transparent;
+		border-bottom: 120px solid transparent;
+		border-left: 20px solid #ccc;
+		border-right: none;
 	}
 }

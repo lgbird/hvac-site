@@ -7,7 +7,7 @@ import Svg from '../components/Svg.js';
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" class="section section-alt btm-padding-section">
+    <section id="servicos" class="services-section section-alt btm-padding-section">
       <div class="section-container">
         <div class="services">
           <div class="service">

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Clarity from '@microsoft/clarity';
 
-import WhatsAppBtn from '../components/whatsappBtn.js';
-import { SiteContext } from "./SiteContext.js";
+import FloatingBtns from "./FloatingBtns.js";
 import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
 const Layout = ({ children }) => {
   const { clarityTag, googleTag, googleConversionAction } = useSiteConfigHook();
-  const { waLink, formattedNumber } = React.useContext(SiteContext);
   function loadGoogleTag() {
     if (window.googleTagLoaded) return;
     window.googleTagLoaded = true;
@@ -109,9 +107,9 @@ const Layout = ({ children }) => {
 
     <>
       {children}
+      <FloatingBtns />
     </>
   )
 };
-//<WhatsAppBtn waLink={waLink} formattedNumber={formattedNumber} />
 
 export default Layout;
