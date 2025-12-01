@@ -12,10 +12,8 @@ import EletrodomesticosHorSvg from "./svg/EletrodomesticosHor";
 
 const CampaignImg = ({ campaignTag }) => {
 	if (campaignTag === "GENERAL") return (
-		<div class="img-desktop only-mobile">
-			<div class="hero-img">
-				<EletrodomesticosSquareSvg size="" />
-			</div>
+		<div class="hero-img only-desktop">
+			<EletrodomesticosSquareSvg size="" />
 		</div>
 	)
 	if (campaignTag === "REP ROUPA LIS") return (
