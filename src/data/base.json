@@ -5,5 +5,19 @@
 		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
 		"location": "Lisboa",
 		"campaign_tag": "REP ROUPA LIS"
+	},
+	{
+		"slug": "reparacao-de-maquinas-de-lavar-loica",
+		"header": "Reparação de máquinas de lavar loiça em Lisboa",
+		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
+		"location": "Lisboa",
+		"campaign_tag": "REP LOICA LIS"
+	},
+	{
+		"slug": "reparacao-de-frigorificos",
+		"header": "Reparação de frigorificos em Lisboa",
+		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
+		"location": "Lisboa",
+		"campaign_tag": "REP FRIDGE LIS"
 	}
 ]

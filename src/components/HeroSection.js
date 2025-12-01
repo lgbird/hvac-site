@@ -10,6 +10,22 @@ import GoogleSvg from "./svg/GoogleSvg";
 import EletrodomesticosSquareSvg from "./svg/EletrodomesticosSquareSvg";
 import EletrodomesticosHorSvg from "./svg/EletrodomesticosHor";
 
+const CampaignImg = ({ campaignTag }) => {
+	if (campaignTag === "GENERAL") return (
+		<div class="img-desktop only-mobile">
+			<div class="hero-img">
+				<EletrodomesticosSquareSvg size="" />
+			</div>
+		</div>
+	)
+	if (campaignTag === "REP ROUPA LIS") return (
+		<div class="hero-img">
+			<WashingMachineRepairSvg size="" />
+		</div>
+	)
+	return null
+}
+
 const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 	const data = useStaticQuery(graphql`
   query {
@@ -41,13 +57,7 @@ const HeroSection = ({ header, subheader, campaignTag = 'GENERAL' }) => {
 					<p class="cta-nudge">Técnicos certificados em quem pode confiar</p>
 				</div>
 				<div class="img-desktop">
-					<div class="hero-img">
-						{campaignTag === 'GENERAL' ?
-							<EletrodomesticosSquareSvg size="" />
-							:
-							<WashingMachineRepairSvg size="" />
-						}
-					</div>
+					<CampaignImg campaignTag={campaignTag} />
 				</div>
 			</div>
 			{campaignTag === 'GENERAL' ? <div class="hero-img-hor">
