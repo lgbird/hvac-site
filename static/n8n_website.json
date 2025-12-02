@@ -1,0 +1,1062 @@
+{
+  "name": "ClimAlgarve Form",
+  "nodes": [
+    {
+      "parameters": {
+        "chatId": "7410676238",
+        "text": "={{ $json.body.toJsonString().replaceAll(',', '\\n') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        -80
+      ],
+      "id": "579152e0-c7e8-46be-a36e-04dc3357c9d8",
+      "name": "Telegram3",
+      "webhookId": "f97326b1-5e27-4d4f-b6ce-000484f2dd2a",
+      "alwaysOutputData": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "SLbOJvnroamxhik0",
+          "name": "climalargve bot"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "chatId": "7410676238",
+        "text": "=WHATSAPP CLICK\n{{ $json.body.toJsonString().replaceAll(',', '\\n') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        180
+      ],
+      "id": "4e9e2426-db92-4145-8e08-755ec6e3953c",
+      "name": "Telegram4",
+      "webhookId": "f97326b1-5e27-4d4f-b6ce-000484f2dd2a",
+      "alwaysOutputData": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "SLbOJvnroamxhik0",
+          "name": "climalargve bot"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1wZ0597zBSpQc--kqFreNrTrVth77ghpOQKDVjePOyos",
+          "mode": "list",
+          "cachedResultName": "HVAC leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wZ0597zBSpQc--kqFreNrTrVth77ghpOQKDVjePOyos/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wZ0597zBSpQc--kqFreNrTrVth77ghpOQKDVjePOyos/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email Address": "={{ $('REPLISBOA - FORM').item.json.body.email }}",
+            "Phone number": "={{ $('REPLISBOA - FORM').item.json.body.telefone }}",
+            "Name": "={{ $('REPLISBOA - FORM').item.json.body.nome }}",
+            "Message": "={{ $('REPLISBOA - FORM').item.json.body.mensagem }}",
+            "Conversion event time": "={{ $now.toISO() }}",
+            "Conversion action": "Google sheet form submissions",
+            "GCLID": "={{ $('REPLISBOA - FORM').item.json.body.GCLID }}",
+            "User agent": "={{ $('REPLISBOA - FORM').item.json.body.userAgent }}",
+            "User IP address": "={{ $('REPLISBOA - FORM').item.json.body.userIp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Conversion action",
+              "displayName": "Conversion action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "GCLID",
+              "displayName": "GCLID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone number",
+              "displayName": "Phone number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Conversion event time",
+              "displayName": "Conversion event time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Conversion value",
+              "displayName": "Conversion value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User IP address",
+              "displayName": "User IP address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User agent",
+              "displayName": "User agent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        440,
+        -80
+      ],
+      "id": "a03dc318-254c-4cd3-83e4-6fb2d83c777d",
+      "name": "Google Conversion1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "7410676238",
+        "text": "=PAGE VIEW\n\n{{ $json.body.p }}\n{{ $json.body.userAgent }}\n{{ $json.body.userIp }}\n\nref: {{ $json.body.ref }}\ngad: {{ $json.body.PARAMS.gad_source }} - {{ $json.body.PARAMS.gad_campaignid }}\ngclid: {{ $json.body.PARAMS.gclid }}\n",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        440
+      ],
+      "id": "54a55a64-ea1c-43bf-8c07-cfb7fe3232b8",
+      "name": "Telegram5",
+      "webhookId": "f97326b1-5e27-4d4f-b6ce-000484f2dd2a",
+      "alwaysOutputData": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "SLbOJvnroamxhik0",
+          "name": "climalargve bot"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc",
+          "mode": "list",
+          "cachedResultName": "WEBSITE TRACKING - REPLISBOA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 678843052,
+          "mode": "list",
+          "cachedResultName": "form",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc/edit#gid=678843052"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $('REPLISBOA - FORM').item.json.body.nome }}",
+            "email": "={{ $('REPLISBOA - FORM').item.json.body.email }}",
+            "phone": "={{ $('REPLISBOA - FORM').item.json.body.telefone }}",
+            "message": "={{ $('REPLISBOA - FORM').item.json.body.mensagem }}",
+            "host": "={{ $('REPLISBOA - FORM').item.json.headers.host }}",
+            "params": "={{ $('REPLISBOA - FORM').item.json.body.PARAMS.toJsonString() }}",
+            "userAgent": "={{ $('REPLISBOA - FORM').item.json.body.userAgent }}",
+            "userIp": "={{ $('REPLISBOA - FORM').item.json.body.userIp }}",
+            "time": "={{ $now.setZone('Europe/Lisbon').toISO() }}",
+            "path": "={{ $('REPLISBOA - FORM').item.json.body.p }}",
+            "ref": "={{ $('REPLISBOA - FORM').item.json.body.ref }}",
+            "campaign_id": "={{ $('REPLISBOA - FORM').item.json.body.PARAMS.gad_campaignid }}",
+            "gbraid": "={{ $('REPLISBOA - FORM').item.json.body.PARAMS.gbraid }}",
+            "gclid": "={{ $('REPLISBOA - FORM').item.json.body.PARAMS.gclid }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "params",
+              "displayName": "params",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "campaign_id",
+              "displayName": "campaign_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "gbraid",
+              "displayName": "gbraid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "gclid",
+              "displayName": "gclid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "host",
+              "displayName": "host",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "path",
+              "displayName": "path",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "userAgent",
+              "displayName": "userAgent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "userIp",
+              "displayName": "userIp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        660,
+        -80
+      ],
+      "id": "147f4f71-ad51-4805-a12e-e7ff68fa10f6",
+      "name": "WEBSITE TRACKING - FORM1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc",
+          "mode": "list",
+          "cachedResultName": "WEBSITE TRACKING - REPLISBOA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "whatsapp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "tag": "={{ $('REPLISBOA - WHATSAPP').item.json.body.T }}",
+            "params": "={{ $('REPLISBOA - WHATSAPP').item.json.body.PARAMS.toJsonString() }}",
+            "host": "={{ $('REPLISBOA - WHATSAPP').item.json.body.host }}",
+            "path": "={{ $('REPLISBOA - WHATSAPP').item.json.body.p }}",
+            "userAgent": "={{ $('REPLISBOA - WHATSAPP').item.json.body.userAgent }}",
+            "userIp": "={{ $('REPLISBOA - WHATSAPP').item.json.body.userIp }}",
+            "time": "={{ $now.setZone('Europe/Lisbon').toISO() }}",
+            "ref": "={{ $('REPLISBOA - WHATSAPP').item.json.body.ref }}",
+            "campaign_id": "={{ $('REPLISBOA - WHATSAPP').item.json.body.PARAMS.gad_campaignid }}",
+            "gbraid": "={{ $('REPLISBOA - WHATSAPP').item.json.body.PARAMS.gbraid }}",
+            "gclid": "={{ $('REPLISBOA - WHATSAPP').item.json.body.PARAMS.gclid }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "tag",
+              "displayName": "tag",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "params",
+              "displayName": "params",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "campaign_id",
+              "displayName": "campaign_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "gbraid",
+              "displayName": "gbraid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "gclid",
+              "displayName": "gclid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "host",
+              "displayName": "host",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "path",
+              "displayName": "path",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "userAgent",
+              "displayName": "userAgent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "userIp",
+              "displayName": "userIp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        440,
+        180
+      ],
+      "id": "11e576ea-6be0-4eba-861e-0a870ae97fea",
+      "name": "WEBSITE TRACKING - WHATSAPP1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc",
+          "mode": "list",
+          "cachedResultName": "WEBSITE TRACKING - REPLISBOA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 375302157,
+          "mode": "list",
+          "cachedResultName": "page views",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YeaYrZBAVJJQ878Ttv1ioeAKNr8PVoCj1EHntnGgMZc/edit#gid=375302157"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "body": "={{ $('Filter1').item.json.body.PARAMS.toJsonString() }}",
+            "path": "={{ $('Filter1').item.json.body.p }}",
+            "host": "={{ $('Filter1').item.json.body.host }}",
+            "userAgent": "={{ $('Filter1').item.json.body.userAgent }}",
+            "userIp": "={{ $('Filter1').item.json.body.userIp }}",
+            "time": "={{ $now.setZone('Europe/Lisbon').toISO() }}",
+            "ref": "={{ $('Filter1').item.json.body.ref }}",
+            "campaign_id": "={{ $('Edit Fields').item.json.campaign_id }}",
+            "gclid": "={{ $('Edit Fields').item.json.gclid }}",
+            "gbraid": "={{ $('Edit Fields').item.json.gbraid }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "body",
+              "displayName": "body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "campaign_id",
+              "displayName": "campaign_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "gbraid",
+              "displayName": "gbraid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "gclid",
+              "displayName": "gclid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "host",
+              "displayName": "host",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "path",
+              "displayName": "path",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "userAgent",
+              "displayName": "userAgent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "userIp",
+              "displayName": "userIp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        880,
+        440
+      ],
+      "id": "4f43f7e5-7f21-42a3-8b98-315a4445e062",
+      "name": "WEBSITE TRACKING - PAGE VIEWS1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "reJenmjKG8AScepQ",
+          "name": "personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5141f7e5-9099-47d3-89ac-1604a2deb1fa",
+              "leftValue": "={{ $json.body.host }}",
+              "rightValue": "reparacoeslisboa.portimaoonline.pt",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "64fd17d5-c3c8-49ee-915c-ad3648b1329d",
+              "leftValue": "={{ [\n  'AdsBot-Google (+http://www.google.com/adsbot.html)',\n  'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; Mozilla/5.0, Google-AdWords-Express) Chrome/141.0.7390.122 Safari/537.36',\n'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.122 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'\n] }}",
+              "rightValue": "={{ $json.body.userAgent }}",
+              "operator": {
+                "type": "array",
+                "operation": "notContains",
+                "rightType": "any"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        440
+      ],
+      "id": "4b0edc9a-dbe3-4f15-8f5b-327423ec0ebc",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-form",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -80
+      ],
+      "id": "6a93a107-6fff-4b41-ba33-953fcb917064",
+      "name": "REPLISBOA - FORM",
+      "webhookId": "5594b047-2243-47f7-a966-de6fcd178016"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        180
+      ],
+      "id": "3f8bf2c0-08d2-438e-8ce6-38110bebb908",
+      "name": "REPLISBOA - WHATSAPP",
+      "webhookId": "5594b047-2243-47f7-a966-de6fcd178016"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "replisboa-page",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        440
+      ],
+      "id": "e279f6f4-92dc-456f-8750-419883c053e9",
+      "name": "REPLISBOA - PAGE",
+      "webhookId": "5594b047-2243-47f7-a966-de6fcd178016"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0b124f34-d1f0-49c1-aa70-1bc0ae1b97c0",
+              "name": "campaign_id",
+              "value": "={{ $json.body.PARAMS.gad_campaignid }}",
+              "type": "string"
+            },
+            {
+              "id": "2a1f0777-8c58-4f3a-8bfb-3d6b1e49cbea",
+              "name": "gclid",
+              "value": "={{ $json.body.PARAMS.gclid }}",
+              "type": "string"
+            },
+            {
+              "id": "b97259e1-eeea-4bee-b50b-365ac348e621",
+              "name": "gbraid",
+              "value": "={{ $json.body.PARAMS.gbraid }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        440
+      ],
+      "id": "31ee0b1d-f60f-4ccd-9845-e81342491dbb",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {
+    "REPLISBOA - FORM": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "user-agent": "node",
+            "content-length": "268",
+            "accept": "*/*",
+            "accept-encoding": "br, gzip, deflate",
+            "accept-language": "*",
+            "content-type": "application/json",
+            "sec-fetch-mode": "cors",
+            "x-forwarded-for": "54.144.48.189",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https",
+            "x-vercel-id": "cdg1::9cbh4-1762830638636-e2f16c54059f"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "nome": "test",
+            "email": "test@test.com",
+            "telefone": "",
+            "mensagem": "test mes",
+            "PARAMS": {},
+            "host": "climalisboa.portimaoonline.pt",
+            "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "userIp": "89.214.121.177"
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/clima-form",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "REPLISBOA - WHATSAPP": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "user-agent": "node",
+            "content-length": "205",
+            "accept": "*/*",
+            "accept-encoding": "br, gzip, deflate",
+            "accept-language": "*",
+            "content-type": "application/json",
+            "sec-fetch-mode": "cors",
+            "x-forwarded-for": "52.72.59.209",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https",
+            "x-vercel-id": "cdg1::kwp5b-1762829916187-0bbfbb969174"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "T": "main",
+            "PARAMS": {},
+            "host": "climalisboa.portimaoonline.pt",
+            "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "userIp": "89.214.121.177"
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/clima-whatsapp",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "REPLISBOA - PAGE": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.orthogan.com",
+            "content-length": "445",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "2a06:98c0:3600::103",
+            "cf-ew-via": "15",
+            "cf-ray": "9a32414ad0705f9a-LIS",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "reparacoes-lisboa.pages.dev",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.68.103.91",
+            "x-forwarded-host": "n8n.orthogan.com",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "PARAMS": {
+              "gad_source": "1",
+              "gad_campaignid": "23275592353",
+              "gclid": "CjwKCAiA_orJBhBNEiwABkdmjGNj86SLWHw95GcM0JzbDS7cNHGYOyMQ40GmrFZS3vZfJmZYqI75txoCbIcQAvD_BwE"
+            },
+            "p": "/reparacao-de-maquinas-de-lavar-roupa-carnaxide/",
+            "ref": "https://www.google.com/",
+            "host": "reparacoeslisboa.portimaoonline.pt",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36",
+            "userIp": "79.169.128.222"
+          },
+          "webhookUrl": "https://n8n.orthogan.com/webhook/replisboa-page",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Telegram3": {
+      "main": [
+        [
+          {
+            "node": "Google Conversion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram4": {
+      "main": [
+        [
+          {
+            "node": "WEBSITE TRACKING - WHATSAPP1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Conversion1": {
+      "main": [
+        [
+          {
+            "node": "WEBSITE TRACKING - FORM1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram5": {
+      "main": [
+        [
+          {
+            "node": "WEBSITE TRACKING - PAGE VIEWS1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Telegram5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REPLISBOA - FORM": {
+      "main": [
+        [
+          {
+            "node": "Telegram3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REPLISBOA - WHATSAPP": {
+      "main": [
+        [
+          {
+            "node": "Telegram4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REPLISBOA - PAGE": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cbb6efd9-8689-4212-aa32-afe5314ad472",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ee96698288d0393112fadcb3ab4d1fe25e64c0c6e712a246d13a3e7e4b8cc7e9"
+  },
+  "id": "e73D1jS1ZoO89P4O",
+  "tags": []
+}

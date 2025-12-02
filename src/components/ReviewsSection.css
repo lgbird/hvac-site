@@ -26,6 +26,10 @@
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.reviews-grid>.review-card:nth-child(n+4) {
+	display: none;
+}
+
 .review-content {
 	flex-grow: 1;
 	margin-bottom: 1.5rem;
@@ -72,5 +76,11 @@
 
 	.review-text {
 		font-size: 0.95rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.reviews-grid>.review-card:nth-child(n+4) {
+		display: flex;
 	}
 }

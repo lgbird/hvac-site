@@ -9,6 +9,8 @@ import WashingMachineRepairSvg from "./svg/WashingMachineRepairSvg";
 import GoogleSvg from "./svg/GoogleSvg";
 import EletrodomesticosSquareSvg from "./svg/EletrodomesticosSquareSvg";
 import EletrodomesticosHorSvg from "./svg/EletrodomesticosHor";
+import DishwasherRepairSvg from "./svg/DishwasherRepairSvg";
+import FridgeRepairSvg from "./svg/FridgeRepairSvg";
 
 const CampaignImg = ({ campaignTag }) => {
 	if (campaignTag === "GENERAL") return (
@@ -19,6 +21,16 @@ const CampaignImg = ({ campaignTag }) => {
 	if (campaignTag === "REP ROUPA LIS") return (
 		<div class="hero-img">
 			<WashingMachineRepairSvg size="" />
+		</div>
+	)
+	if (campaignTag === "REP LOICA LIS") return (
+		<div class="hero-img">
+			<DishwasherRepairSvg size="" />
+		</div>
+	)
+	if (campaignTag === "REP FRIDGE LIS") return (
+		<div class="hero-img">
+			<FridgeRepairSvg size="" />
 		</div>
 	)
 	return null
