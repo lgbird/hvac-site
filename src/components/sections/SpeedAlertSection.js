@@ -1,8 +1,7 @@
 import React from 'react';
-import PhoneSvg from './PhoneSvg';
-import { SiteContext } from './SiteContext';
+import { SiteContext } from '../SiteContext';
 import './SpeedAlertSection.css';
-import WhatsappSvg from './WhatsappSvg';
+import { PhoneSvg, WhatsappSvg } from '../svg';
 
 const SpeedAlertSection = () => {
   const { waLink, formattedNumber, phoneNumber } = React.useContext(SiteContext);

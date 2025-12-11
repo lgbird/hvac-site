@@ -1,13 +1,10 @@
 import React from 'react';
-import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import CtaBtn from '../components/CtaBtn.js';
-import Svg from '../components/Svg.js';
+import { CtaBtn } from '../elements';
 import './BelowFoldSection.css';
-import PhoneSvg from './svg/PhoneSvg.js';
-import DeliveryVanSvg from './svg/DeliveryVanSvg.js';
-import PartySvg from './svg/PartySvg.js';
-import WrenchRepairSvg from './svg/WrenchRepairSvg.js';
+import { Hours24Svg, CertifiedSvg, FastDeliverySvg } from "../svg";
 
 
 const WhyUs = () => {
@@ -32,15 +29,15 @@ const Usps = () => {
     <div class="section-container usps">
       <div class="features">
         <div class="feature">
-          <Svg name="24-hours" />
+          <Hours24Svg />
           <p class="feature-text">Disponibilidade 24/7</p>
         </div>
         <div class="feature">
-          <Svg name="certified" />
+          <CertifiedSvg />
           <p class="feature-text">Técnicos Certificados</p>
         </div>
         <div class="feature">
-          <Svg name="fast-delivery" />
+          <FastDeliverySvg />
           <p class="feature-text">Serviço Rápido</p>
         </div>
       </div>
@@ -51,13 +48,32 @@ const Usps = () => {
   )
 }
 
+const BelowFoldSection = ({ appliance }) => {
+  const data = useStaticQuery(graphql`
+  query {
+    washingMachine: file(relativePath: { eq: "technician.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    dishWasher: file(relativePath: { eq: "technician_loica_2.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    fridge: file(relativePath: { eq: "technician_frigo_3.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+  }
+`);
 
-
-const BelowFoldSection = () => {
+  const generalImage = getImage(data[appliance]);
   return (
     <section id="below-fold" class="below-fold-section">
       <section class="image-section">
-        <StaticImage src="../images/technician.png" layout="fullWidth" />
+        <GatsbyImage image={generalImage} />
       </section>
       <WhyUs />
       <Usps />

@@ -1,25 +1,31 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 import { SiteContext } from "../components/SiteContext.js";
-
 import SEO from '../components/Seo.js';
 import Layout from '../components/Layout.js';
-import NavbarLanding from '../components/NavbarLanding.js';
-import HeroSection from '../components/HeroSection.js';
-import SpeedAlertSection from "../components/SpeedAlertSection.js";
-import BelowFoldSection from "../components/BelowFoldSection.js";
-import ServicesSection from "../components/ServicesSection.js";
-import BrandsSection from "../components/BrandsSection.js";
-import ReviewsSection from '../components/ReviewsSection.js';
-import ContactSection from '../components/ContactSection.js';
-import Footer from '../components/Footer.js';
-import ContactInfoSection from "../components/ContactInfoSection.js";
-import HowItWorks from "../components/HowItWorksSection.js";
+
+import { BelowFoldSection, BrandsSection, ContactInfoSection, ContactSection, HeroSection, HowItWorksSection, ReviewsSection, ServicesSection, SpeedAlertSection } from '../components/sections';
+import { Navbar, Footer } from '../components/elements';
 
 
-const ImageRow = () => {
+const applianceByCampaignTag = {
+  "REP ROUPA LIS": "washingMachine",
+  "REP LOICA LIS": "dishWasher",
+  "REP FRIGO LIS": "fridge"
+}
+
+const ImageRow = ({ img1, img2 }) => {
+  return (
+    <div class="img-row">
+      <GatsbyImage image={img1} />
+      <GatsbyImage image={img2} className="only-desktop" />
+    </div>
+  )
+
   return (
     <div class="img-row">
       <StaticImage src="../images/wm-guy.png" />
@@ -53,17 +59,54 @@ const ResponsiveRow = () => {
 const PageTemplate = ({ pageContext }) => {
   const { phoneNumber, formattedNumber, waMessage } = useSiteConfigHook();
   let waLink = `https://api.whatsapp.com/send/?phone=351${phoneNumber}&text=${encodeURIComponent(waMessage)}`;
+  let appliance = applianceByCampaignTag[pageContext.campaignTag];
+  const data = useStaticQuery(graphql`
+  query {
+    washingMachine: file(relativePath: { eq: "wm-guy.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    washingMachine2: file(relativePath: { eq: "wm-repair.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    dishWasher: file(relativePath: { eq: "technician_loica.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    dishWasher2: file(relativePath: { eq: "repair_loica.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    fridge: file(relativePath: { eq: "technician_frigo.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+    fridge2: file(relativePath: { eq: "technician_frigo_2.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 800, placeholder: BLURRED)
+      }
+    },
+  }
+`);
+  const img1 = getImage(data[appliance]);
+  const img2 = getImage(data[`${appliance}2`]);
   return (
     <SiteContext.Provider value={{ waLink, formattedNumber, phoneNumber }}>
       <Layout>
         <main>
-          <NavbarLanding />
+          <Navbar />
           <HeroSection header={pageContext.header} subheader={pageContext.subheader} campaignTag={pageContext.campaignTag} />
           <ReviewsSection />
-          <BelowFoldSection />
-          <ImageRow />
-          <HowItWorks />
-          <StaticImage src="../images/wm-repair.png" className="only-mobile" />
+          <BelowFoldSection appliance={appliance} />
+          <ImageRow img1={img1} img2={img2} />
+          <HowItWorksSection />
+          <GatsbyImage image={img2} className="only-mobile" />
           <ServicesSection />
           <SpeedAlertSection />
           <BrandsSection />

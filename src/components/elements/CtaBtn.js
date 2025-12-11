@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { SiteContext } from './SiteContext';
+import { SiteContext } from '../SiteContext';
 import './CtaBtn.css';
-import PhoneSvg from './PhoneSvg.js';
-import WhatsappSvg from './WhatsappSvg';
+import { PhoneSvg, WhatsappSvg } from '../svg';
 
 const CtaBtn = ({ whatsapp = false, id = "" }) => {
 	const { waLink, phoneNumber, formattedNumber } = React.useContext(SiteContext);
@@ -27,4 +26,3 @@ const CtaBtn = ({ whatsapp = false, id = "" }) => {
 }
 
 export default CtaBtn;
-

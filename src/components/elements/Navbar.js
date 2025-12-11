@@ -1,11 +1,9 @@
 import * as React from "react"
 
-import RepairSvg from '../components/RepairSvg.js';
-import { SiteContext } from "./SiteContext.js";
+import { SiteContext } from "../SiteContext.js";
 import './Navbar.css';
-import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
-import PhoneSvg from "./PhoneSvg.js";
-import WhatsappSvg from "./WhatsappSvg.js";
+import { useSiteConfigHook } from "../../hooks/siteConfigHook.js";
+import { RepairLogoSvg, PhoneSvg, WhatsappSvg } from '../svg';
 
 const ContactRow = () => {
 	const { phoneNumber } = useSiteConfigHook();
@@ -30,7 +28,7 @@ const NavbarLanding = () => {
 			</div>
 			<div class="nav-container">
 				<div class="nav-logo">
-					<RepairSvg />
+					<RepairLogoSvg />
 					<span>{title}</span>
 				</div>
 				<div class="nav-cta-desktop">

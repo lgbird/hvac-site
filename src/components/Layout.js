@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Clarity from '@microsoft/clarity';
 
-import FloatingBtns from "./FloatingBtns.js";
+import { FloatingBtns } from "../components/elements";
 import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 
 const Layout = ({ children }) => {

@@ -1,14 +1,14 @@
 import * as React from "react"
 
 import './ContactInfoSection.css';
-import Svg from '../components/Svg.js';
-import { SiteContext } from "./SiteContext";
+import { SiteContext } from "../SiteContext";
+import { WhatsappCartoonSvg, Phone24Svg, ClockSvg } from "../svg";
 
 const WaInfo = () => {
   const { waLink, phoneNumber, formattedNumber } = React.useContext(SiteContext);
   return (
     <div class="contact-info">
-      <Svg name="whatsapp-cartoon" />
+      <WhatsappCartoonSvg />
       <div class="contact-info-text-block">
         <p class="contact-info-title">WhatsApp</p>
         <a class="cta nav-link" href={waLink} target="_blank" data-btn="info-wa">
@@ -27,7 +27,7 @@ const ContactInfoSection = () => {
         <h2 class="section-title">Informações de Contacto</h2>
         <div>
           <div class="contact-info">
-            <Svg name="phone-24" />
+            <Phone24Svg />
             <div class="contact-info-text-block">
               <p class="contact-info-title">Telefone</p>
               <a class="cta nav-link" href={`tel:+351${phoneNumber}`} target="_blank" data-btn="info-phone">
@@ -36,7 +36,7 @@ const ContactInfoSection = () => {
             </div>
           </div>
           <div class="contact-info">
-            <Svg name="clock" />
+            <ClockSvg />
             <div class="contact-info-text-block">
               <p class="contact-info-title">Horário de Funcionamento</p>
               <p class="contact-info-text">24 horas, segunda a domingo</p>

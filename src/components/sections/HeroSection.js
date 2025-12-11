@@ -4,13 +4,13 @@ import './HeroSection.css';
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-import CtaBtn from '../components/CtaBtn.js';
-import WashingMachineRepairSvg from "./svg/WashingMachineRepairSvg";
-import GoogleSvg from "./svg/GoogleSvg";
-import EletrodomesticosSquareSvg from "./svg/EletrodomesticosSquareSvg";
-import EletrodomesticosHorSvg from "./svg/EletrodomesticosHor";
-import DishwasherRepairSvg from "./svg/DishwasherRepairSvg";
-import FridgeRepairSvg from "./svg/FridgeRepairSvg";
+import { CtaBtn } from '../elements';
+import WashingMachineRepairSvg from "../svg/WashingMachineRepairSvg";
+import GoogleSvg from "../svg/GoogleSvg";
+import EletrodomesticosSquareSvg from "../svg/EletrodomesticosSquareSvg";
+import EletrodomesticosHorSvg from "../svg/EletrodomesticosHor";
+import DishwasherRepairSvg from "../svg/DishwasherRepairSvg";
+import FridgeRepairSvg from "../svg/FridgeRepairSvg";
 
 const CampaignImg = ({ campaignTag }) => {
 	if (campaignTag === "GENERAL") return (
@@ -28,7 +28,7 @@ const CampaignImg = ({ campaignTag }) => {
 			<DishwasherRepairSvg size="" />
 		</div>
 	)
-	if (campaignTag === "REP FRIDGE LIS") return (
+	if (campaignTag === "REP FRIGO LIS") return (
 		<div class="hero-img">
 			<FridgeRepairSvg size="" />
 		</div>

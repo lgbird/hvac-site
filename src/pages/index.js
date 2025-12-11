@@ -1,21 +1,13 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image";
 
+import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
 import { SiteContext } from "../components/SiteContext.js";
 import Layout from '../components/Layout.js';
 import SEO from '../components/Seo.js';
-import NavbarLanding from '../components/NavbarLanding.js';
-import HeroSection from '../components/HeroSection.js';
-import ContactSection from '../components/ContactSection.js';
-import ReviewsSection from '../components/ReviewsSection.js';
-import Footer from '../components/Footer.js';
-import SpeedAlertSection from "../components/SpeedAlertSection.js";
-import BrandsSection from "../components/BrandsSection.js";
-import ContactInfoSection from "../components/ContactInfoSection.js";
-import { useSiteConfigHook } from "../hooks/siteConfigHook.js";
-import BelowFoldSection from "../components/BelowFoldSection.js";
-import ServicesSection from "../components/ServicesSection.js";
 
+import { BelowFoldSection, BrandsSection, ContactInfoSection, ContactSection, HeroSection, ReviewsSection, ServicesSection, SpeedAlertSection } from '../components/sections';
+import { Navbar, Footer } from '../components/elements';
 
 
 const ImageRow = () => {
@@ -56,7 +48,7 @@ const IndexPage = () => {
         <SiteContext.Provider value={{ waLink, formattedNumber, phoneNumber }}>
             <Layout>
                 <main>
-                    <NavbarLanding home={true} />
+                    <Navbar home={true} />
                     <HeroSection header={heroHeader} subheader={heroSubheader} />
                     <SpeedAlertSection />
                     <BelowFoldSection />

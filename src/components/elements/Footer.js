@@ -1,10 +1,10 @@
 import * as React from "react"
 
 import './Footer.css';
-import RepairSvg from "./RepairSvg.js";
+import { RepairLogoSvg } from "../svg";
 import { StaticImage } from "gatsby-plugin-image";
-import { useSiteConfigHook } from "../hooks/siteConfigHook";
-import { SiteContext } from "./SiteContext";
+import { useSiteConfigHook } from "../../hooks/siteConfigHook";
+import { SiteContext } from "../SiteContext";
 
 const WaItem = () => {
 	const { phoneNumber, formattedNumber, waLink } = React.useContext(SiteContext);
@@ -25,7 +25,7 @@ const Footer = () => {
 				<div class="footer-content">
 					<div class="footer-info">
 						<div class="nav-logo">
-							<RepairSvg />
+							<RepairLogoSvg />
 							<span>{title}</span>
 						</div>
 						<div class="footer-contact">
@@ -43,7 +43,7 @@ const Footer = () => {
 							<a href="/politica-cookies" target="_blank" class="footer-link">Politica de Cookies</a>
 						</div>
 						<a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" aria-label="livro reclamacoes">
-							<StaticImage src="../images/livro_reclamacoes.webp" />
+							<StaticImage src="../../images/livro_reclamacoes.webp" />
 						</a>
 						<p>&copy; 2024 {title}. Todos os direitos reservados.</p>
 					</div>

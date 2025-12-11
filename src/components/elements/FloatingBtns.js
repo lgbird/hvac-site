@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { SiteContext } from "./SiteContext.js";
-import WhatsappSvg from '../components/WhatsappSvg.js';
-import PhoneSvg from './svg/PhoneSvg.js';
+import { SiteContext } from "../SiteContext.js";
+import { PhoneSvg, WhatsappSvg } from '../svg';
 import './FloatingBtns.css';
 
 const FloatingBtns = () => {

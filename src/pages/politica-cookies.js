@@ -4,8 +4,7 @@ import { useSiteConfigHook } from "../hooks/siteConfigHook";
 import { SiteContext } from "../components/SiteContext";
 import SEO from "../components/Seo";
 import Layout from '../components/Layout.js';
-import Navbar from '../components/Navbar.js';
-import Footer from '../components/Footer.js';
+import { Navbar, Footer } from '../components/elements';
 
 const CookiePolicy = () => {
   const { waMessage, phoneNumber, formattedNumber } = useSiteConfigHook();

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import CtaBtn from '../components/CtaBtn.js';
+import { CtaBtn } from '../elements';
 import './ReviewsSection.css';
 
 const reviews = [

@@ -1,11 +1,8 @@
 import React from 'react';
 
-import CtaBtn from '../components/CtaBtn.js';
+import { CtaBtn } from '../elements';
 import './BelowFoldSection.css';
-import PhoneSvg from './svg/PhoneSvg.js';
-import DeliveryVanSvg from './svg/DeliveryVanSvg.js';
-import PartySvg from './svg/PartySvg.js';
-import WrenchRepairSvg from './svg/WrenchRepairSvg.js';
+import { PhoneSvg, DeliveryVanSvg, PartySvg, WrenchRepairSvg } from '../svg';
 
 const HowItWorks = () => {
   return (
