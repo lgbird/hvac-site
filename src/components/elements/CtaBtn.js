@@ -25,4 +25,5 @@ const CtaBtn = ({ whatsapp = false, id = "" }) => {
 	)
 }
 
+
 export default CtaBtn;
