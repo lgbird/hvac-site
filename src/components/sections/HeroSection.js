@@ -18,17 +18,17 @@ const CampaignImg = ({ campaignTag }) => {
 			<EletrodomesticosSquareSvg size="" />
 		</div>
 	)
-	if (campaignTag === "REP ROUPA LIS") return (
+	if (campaignTag.includes("REP ROUPA")) return (
 		<div class="hero-img">
 			<WashingMachineRepairSvg size="" />
 		</div>
 	)
-	if (campaignTag === "REP LOICA LIS") return (
+	if (campaignTag.includes("REP LOICA")) return (
 		<div class="hero-img">
 			<DishwasherRepairSvg size="" />
 		</div>
 	)
-	if (campaignTag === "REP FRIGO LIS") return (
+	if (campaignTag.includes("REP FRIGO")) return (
 		<div class="hero-img">
 			<FridgeRepairSvg size="" />
 		</div>
