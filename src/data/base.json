@@ -19,5 +19,33 @@
 		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
 		"location": "Lisboa",
 		"campaign_tag": "REP FRIGO LIS"
-	}
+	},
+	{
+		"slug": "reparacao-de-fogoes",
+		"header": "Reparação de fogões em Lisboa",
+		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
+		"location": "Lisboa",
+		"campaign_tag": "REP FOGAO LIS"
+	},
+	{
+		"slug": "reparacao-de-fornos",
+		"header": "Reparação de fogões em Lisboa",
+		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
+		"location": "Lisboa",
+		"campaign_tag": "REP FOGAO LIS"
+	},
+	{
+		"slug": "reparacao-de-esquentadores",
+		"header": "Reparação de esquentadores em Lisboa",
+		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
+		"location": "Lisboa",
+		"campaign_tag": "REP ESQUEN LIS"
+	},
+	{
+		"slug": "reparacao-de-caldeiras",
+		"header": "Reparação de caldeiras em Lisboa",
+		"subheader": "Resposta imediata, diagnóstico e reparação no próprio dia. Ligue agora e receba um técnico certificado ainda hoje",
+		"location": "Lisboa",
+		"campaign_tag": "REP CALDEIRA LIS"
+	},
 ]

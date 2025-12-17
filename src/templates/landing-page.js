@@ -13,9 +13,9 @@ import { Navbar, Footer } from '../components/elements';
 
 
 const applianceByCampaignTag = {
-  "REP ROUPA LIS": "washingMachine",
-  "REP LOICA LIS": "dishWasher",
-  "REP FRIGO LIS": "fridge"
+  "ROUPA": "washingMachine",
+  "LOICA": "dishWasher",
+  "FRIGO": "fridge"
 }
 
 const ImageRow = ({ img1, img2 }) => {
@@ -40,7 +40,7 @@ const ServiceArea = () => {
       <div class="img-section-container">
         <h2 class="section-title">Area de Serviço</h2>
         <StaticImage src="../images/area-servico.png" style={{ marginBottom: "2rem" }} imgClassName="service-area-img" className="service-area-img" />
-        <p class="section-subtitle">Vamos até si em toda Grande Lisboa!</p>
+        <p class="section-subtitle">Vamos até si em toda Grande Lisboa e Margem Sul do Tejo!</p>
       </div>
     </section>
   )
@@ -59,7 +59,7 @@ const ResponsiveRow = () => {
 const PageTemplate = ({ pageContext }) => {
   const { phoneNumber, formattedNumber, waMessage } = useSiteConfigHook();
   let waLink = `https://api.whatsapp.com/send/?phone=351${phoneNumber}&text=${encodeURIComponent(waMessage)}`;
-  let appliance = applianceByCampaignTag[pageContext.campaignTag];
+  let appliance = applianceByCampaignTag[pageContext.campaignTag.split(" ")[1]];
   const data = useStaticQuery(graphql`
   query {
     washingMachine: file(relativePath: { eq: "wm-guy.png" }) {
