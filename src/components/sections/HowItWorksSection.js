@@ -27,7 +27,7 @@ const HowItWorks = () => {
               Um técnico credenciado desloca-se a sua casa. Diagnostica o problema e apresenta-lhe um orçamento detalhado na hora.
             </p>
             <p>
-              Custo fixo de deslocação: 39,99€
+              Custo fixo de deslocação: 25€
             </p>
           </div>
           <div class="step step-3">
